@@ -9,41 +9,46 @@
 </head>
 <body>
   <nav>
-    <div class="logo">SAJAN SINGH SHERGILL / DATA ANALYST</div>
+    <div class="logo">Sajan Singh</div>
     <ul>
-      <li><a href="#about">ABOUT ME</a></li>
-      <li><a href="#projects">PROJECTS</a></li>
-      <li><a href="#portfolio">PORTFOLIO</a></li>
-      <li><a href="#dashboards">DASHBOARD</a></li>
-      <li><a href="#contact">CONTACT</a></li>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#dashboards">Dashboards</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <header class="intro" id="about">
     <div class="profile-card">
-      <img src="assets/images/profile.png" alt="Sajan Singh" class="profile-img">
-      <h1>Sajan Singh Shergill</h1>
-      <p>Data Analyst | ML Intern | Graduate Student at Pace University</p>
+      <img src="assets/profile.jpg" alt="Sajan Singh" class="profile-img">
+      <h1>Sajan Singh</h1>
+      <div class="title-line"></div>
+      <p class="role">Data Analyst | ML Intern</p>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/sajansshergill" target="_blank">🔗</a>
-        <a href="https://github.com/sajansshergill" target="_blank">🐙</a>
+        <a href="https://www.linkedin.com/in/sajansshergill" target="_blank">
+          <img src="assets/linkedin.png" alt="LinkedIn">
+        </a>
+        <a href="https://github.com/sajansshergill" target="_blank">
+          <img src="assets/github.png" alt="GitHub">
+        </a>
+        <a href="#">
+          <img src="assets/tableau.png" alt="Tableau">
+        </a>
       </div>
     </div>
     <div class="intro-text">
       <h2>Hello!</h2>
       <h3>Here's who I am & what I do</h3>
       <div class="intro-buttons">
-        <button onclick="scrollToSection('background')">BACKGROUND</button>
-        <button onclick="scrollToSection('projects')">PROJECTS</button>
-        <button onclick="scrollToSection('portfolio')">PORTFOLIO</button>
-        <button onclick="scrollToSection('dashboards')">DASHBOARD</button>
+        <button onclick="scrollToSection('background')">Background</button>
+        <button onclick="scrollToSection('projects')">Projects</button>
+        <button onclick="scrollToSection('portfolio')">Portfolio</button>
+        <button onclick="scrollToSection('dashboards')">Dashboards</button>
       </div>
       <p>Hi! I’m Sajan Singh Shergill, a data-driven problem solver currently pursuing my Master’s in Data Science at Pace University. With over three years of experience in software quality assurance, I’ve worked extensively in agile development environments across fintech and edtech domains. My foundation in QA has given me a unique edge — a deep understanding of product usability, process optimization, and the discipline of testing things thoroughly before scaling. This background has shaped my approach as I transition into the world of data science and machine learning.</p>
-
       <p>Over the years, I’ve grown passionate about transforming raw, complex data into insights that guide meaningful business decisions. Whether it's building predictive models to analyze customer churn or visualizing energy demand trends using Facebook Prophet, I enjoy solving real-world problems at the intersection of technology, analytics, and strategy. My hands-on experience spans tools like Python, SQL, Power BI, Tableau, and Excel — with projects ranging from political ad-spend analysis to food delivery profitability and infrastructure forecasting.</p>
-
       <p>I take pride in my ability to blend technical expertise with collaboration. Leading QA teams and working with cross-functional stakeholders have taught me the importance of communication, clarity, and empathy in tech. From automating testing suites to crafting dashboards that highlight financial outliers, I aim to deliver solutions that are not just smart, but also usable and scalable.</p>
-
       <p>Above all, I’m someone who learns fast, adapts quickly, and strives to make a positive impact. Whether I’m streamlining operational workflows, digging into messy datasets, or training machine learning models, I bring curiosity and drive to everything I do. I’m excited about opportunities where I can contribute to data-driven innovation and continue growing as a data professional.</p>
     </div>
   </header>
@@ -63,6 +68,12 @@
     </div>
     <div class="project-card" onclick="loadProject('contract-lifecycle')">
       <h2>Contract Lifecycle Simulation Project</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('background')">
+      <h2>Background</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('portfolio')">
+      <h2>Portfolio</h2>
     </div>
   </main>
 
