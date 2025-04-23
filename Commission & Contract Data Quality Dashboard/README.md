@@ -112,11 +112,11 @@ Fields: contract_id, start_date, end_date, client_name, total_value
 ### 🔗 Alignment with Internship Role
 This project demonstrates:
 
-Ability to clean and validate contract/commission datasets
+- Ability to clean and validate contract/commission datasets
 
-Proficiency with BI tools and Excel
+- Proficiency with BI tools and Excel
 
-Skills in exploratory data analysis
+- Skills in exploratory data analysis
 
-Communication of insights through interactive dashboards
+- Communication of insights through interactive dashboards
 
