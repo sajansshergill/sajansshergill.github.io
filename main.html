@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sajan Singh | Data Analyst Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <header class="intro">
+    <div class="profile-card">
+      <img src="profile.jpg" alt="Sajan Singh" class="profile-img">
+      <h1>Sajan Singh</h1>
+      <p>Data Analyst | ML Intern | Graduate Student at Pace University</p>
+      <div class="social-icons">
+        <a href="https://www.linkedin.com/in/sajanshergill" target="_blank">🔗</a>
+        <a href="https://github.com/sajansshergill" target="_blank">🐙</a>
+      </div>
+    </div>
+    <div class="intro-text">
+      <h2>Hello!</h2>
+      <p>Here's who I am & what I do</p>
+      <div class="intro-buttons">
+        <button onclick="scrollToSection('projects')">Projects</button>
+        <button onclick="scrollToSection('dashboards')">Dashboards</button>
+      </div>
+      <p>Currently pursuing my Master’s in Data Science at Pace University, I bring over 3 years of experience in software quality assurance and functional testing within agile development environments. My foundation in tech and testing has evolved into a strong interest and growing expertise in data analytics and machine learning.</p>
+      <ul>
+        <li>✅ 3+ years of QA experience across fintech and edtech domains</li>
+        <li>✅ Hands-on with Python, SQL, Excel & Power BI for data analysis</li>
+        <li>✅ Trained in machine learning, A/B testing, and data storytelling</li>
+        <li>✅ Skilled in statistics, databases, data structures, and pipelines</li>
+        <li>✅ Experience with CI/CD testing, production support, and integration</li>
+        <li>✅ Passionate about transforming messy data into business insights</li>
+      </ul>
+      <p><strong>Projects:</strong> Customer churn analysis using Random Forest, marketing ad-spend ROI optimization, and energy cost modeling.</p>
+      <p>I enjoy collaborating with cross-functional teams, building data pipelines, and solving business problems through measurable insights. Connect with me on LinkedIn or email: <a href="mailto:sajansshergill@gmail.com">sajansshergill@gmail.com</a></p>
+    </div>
+  </header>
+
+  <main id="projects" class="project-grid">
+    <div class="project-card" onclick="loadProject('commission')">
+      <h2>Commission & Contract Data Quality Dashboard</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('workflow')">
+      <h2>Financial Workflow Optimization Using Python</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('disparities')">
+      <h2>Exploratory Analysis on Commission Disparities</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('bi-report')">
+      <h2>Ad-Hoc BI Report for Stakeholders</h2>
+    </div>
+    <div class="project-card" onclick="loadProject('contract-lifecycle')">
+      <h2>Contract Lifecycle Simulation Project</h2>
+    </div>
+  </main>
+
+  <section id="project-details" style="display:none; padding: 2rem;"></section>
+
+  <footer>
+    <p>Designed by Sajan Singh | © 2025</p>
+  </footer>
+</body>
+</html>
