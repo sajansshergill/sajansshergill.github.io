@@ -1,21 +1,26 @@
-💼 Commission & Contract Data Quality Dashboard
-📌 Project Overview
-This project simulates a real-world scenario where financial commission and contract data often contains inconsistencies such as duplicates, missing values, or misaligned entries. The goal is to clean, validate, and visualize this data using Excel, Power BI, and optionally Python, to showcase analytical rigor and dashboarding capability.
+## 💼 Commission & Contract Data Quality Dashboard
 
-🧠 Problem Statement
+### 📌 Project Overview
+This project simulates a real-world scenario where financial commission and contract data often contains 
+inconsistencies such as duplicates, missing values, or misaligned entries. The goal is to clean, validate, 
+and visualize this data using Excel, Power BI, and optionally Python, to showcase analytical rigor and 
+dashboarding capability.
+
+### 🧠 Problem Statement
 Financial operations teams often deal with messy datasets, including:
 
-Missing commission percentages
+- Missing commission percentages
 
-Duplicate contract records
+- Duplicate contract records
 
-Inconsistent date formats
+- Inconsistent date formats
 
-Mismatches between contract amounts and calculated commissions
+- Mismatches between contract amounts and calculated commissions
 
-This project addresses those issues by applying cleaning and validation techniques, followed by the creation of a dashboard that highlights key trends, outliers, and insights to support strategic decisions.
+This project addresses those issues by applying cleaning and validation techniques, followed by the 
+creation of a dashboard that highlights key trends, outliers, and insights to support strategic decisions.
 
-🔧 Tools & Technologies
+### 🔧 Tools & Technologies
 Excel (Advanced formulas, Pivot Tables)
 
 Power BI (or Tableau for interactive dashboarding)
