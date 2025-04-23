@@ -1,4 +1,4 @@
-# 💼 Commission & Contract Data Quality Dashboard
+## 💼 Commission & Contract Data Quality Dashboard
 
 ### 📌 Project Overview
 This project simulates a real-world scenario where financial commission and contract data often contains 
@@ -23,93 +23,93 @@ creation of a dashboard that highlights key trends, outliers, and insights to su
 ### 🔧 Tools & Technologies
 - Excel (Advanced formulas, Pivot Tables)
 
-Power BI (or Tableau for interactive dashboarding)
+- Power BI (or Tableau for interactive dashboarding)
 
-Python (pandas) – Optional for advanced data wrangling
+- Python (pandas) – Optional for advanced data wrangling
 
-Google Sheets – Optional for collaborative editing
+- Google Sheets – Optional for collaborative editing
 
-📊 Data Source
+### 📊 Data Source
 Synthetic data was generated for this project:
 
-commission_data.csv
+- commission_data.csv
 Fields: agent_id, contract_id, date, amount, commission_pct, region, commission
 
-contract_data.csv
+- contract_data.csv
 Fields: contract_id, start_date, end_date, client_name, total_value
 
-🧪 Steps to Execute
-1. Data Import
-Load both datasets into Excel or a Python environment.
+### 🧪 Steps to Execute
+#### 1. Data Import
+- Load both datasets into Excel or a Python environment.
 
-Inspect for issues such as missing or incorrect values.
+- Inspect for issues such as missing or incorrect values.
 
-2. Data Cleaning
-Handle missing values in commission_pct, contract_id
+#### 2. Data Cleaning
+- Handle missing values in commission_pct, contract_id
 
-Remove duplicate rows
+- Remove duplicate rows
 
-Standardize date formats for consistency
+- Standardize date formats for consistency
 
-3. Data Validation
-Recalculate commissions using: amount × commission_pct
+#### 3. Data Validation
+- Recalculate commissions using: amount × commission_pct
 
-Cross-verify contract totals between both datasets
+- Cross-verify contract totals between both datasets
 
-4. Metric Calculation
-Total commission earned per region
+#### 4. Metric Calculation
+- Total commission earned per region
 
-Average commission percentage across contracts
+- Average commission percentage across contracts
 
-Identify top-performing agents
+- Identify top-performing agents
 
-Detect monthly/quarterly earning trends
+- Detect monthly/quarterly earning trends
 
-5. Dashboard Development
-Use Power BI or Tableau to create:
+#### 5. Dashboard Development
+- Use Power BI or Tableau to create:
 
-Filters: By Date and Region
+  - Filters: By Date and Region
 
-Charts:
+  - Charts:
 
-Bar chart: Total commission by region
+    - Bar chart: Total commission by region
 
-Line chart: Monthly commission trends
+    - Line chart: Monthly commission trends
 
-Pie chart: Commission distribution by region
+    - Pie chart: Commission distribution by region
 
-Summary table for contract validations
+    - Summary table for contract validations
 
-6. Anomaly Detection
-Highlight records where commission deviates ±15% from average
+#### 6. Anomaly Detection
+- Highlight records where commission deviates ±15% from average
 
-📈 Visualizations
-📊 Bar Chart: Total Commission by Region
+### 📈 Visualizations
+- 📊 Bar Chart: Total Commission by Region
 
-📉 Line Chart: Commission Over Time
+- 📉 Line Chart: Commission Over Time
 
-📋 Table: Contract Validation Summary
+- 📋 Table: Contract Validation Summary
 
-🧮 KPI Cards: Total Contracts, Avg. Commission %
+- 🧮 KPI Cards: Total Contracts, Avg. Commission %
 
-📝 Final Deliverables
-✅ Jupyter Notebook or Excel workbook (Data cleaning, validation logic)
+### 📝 Final Deliverables
+- ✅ Jupyter Notebook or Excel workbook (Data cleaning, validation logic)
 
-✅ Power BI / Tableau Dashboard
+- ✅ Power BI / Tableau Dashboard
 
-✅ Write-Up (README.md):
+- ✅ Write-Up (README.md):
 
-Introduction & Problem Statement
+  - Introduction & Problem Statement
 
-Tools Used
+  - Tools Used
 
-Data Cleaning & Validation Strategy
+  - Data Cleaning & Validation Strategy
 
-Key Insights & Metrics
+  - Key Insights & Metrics
 
-Dashboard Screenshots & Interpretation
+  - Dashboard Screenshots & Interpretation
 
-🔗 Alignment with Internship Role
+### 🔗 Alignment with Internship Role
 This project demonstrates:
 
 Ability to clean and validate contract/commission datasets
