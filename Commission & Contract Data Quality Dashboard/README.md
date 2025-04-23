@@ -21,7 +21,7 @@ This project addresses those issues by applying cleaning and validation techniqu
 creation of a dashboard that highlights key trends, outliers, and insights to support strategic decisions.
 
 ### 🔧 Tools & Technologies
-Excel (Advanced formulas, Pivot Tables)
+- Excel (Advanced formulas, Pivot Tables)
 
 Power BI (or Tableau for interactive dashboarding)
 
