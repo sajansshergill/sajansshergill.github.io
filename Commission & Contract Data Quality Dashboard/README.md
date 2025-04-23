@@ -22,7 +22,7 @@ creation of a dashboard that highlights key trends, outliers, and insights to su
 
 ### 🔧 Tools & Technologies
 - Excel (Advanced formulas, Pivot Tables)
-
+  
 - Power BI (or Tableau for interactive dashboarding)
 
 - Python (pandas) – Optional for advanced data wrangling
