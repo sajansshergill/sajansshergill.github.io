@@ -5,22 +5,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sajan Singh | Data Analyst Portfolio</title>
   <link rel="stylesheet" href="assets/style.css">
-  <script src="assets/script.js" defer></script>
+  <script defer src="assets/script.js"></script>
 </head>
 <body>
-  <header class="intro">
+  <!-- NAVIGATION BAR -->
+  <nav>
+    <div class="logo">Sajan Singh</div>
+    <ul>
+      <li><a href="#about">About Me</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#portfolio">Portfolio</a></li>
+      <li><a href="#dashboards">Dashboards</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <header class="intro" id="about">
     <div class="profile-card">
-      <img src="profile.jpg" alt="Sajan Singh" class="profile-img">
+      <img src="assets/profile.jpg" alt="Sajan Singh" class="profile-img">
       <h1>Sajan Singh</h1>
       <p>Data Analyst | ML Intern | Graduate Student at Pace University</p>
       <div class="social-icons">
-        <a href="https://www.linkedin.com/in/sajanshergill" target="_blank">🔗</a>
+        <a href="https://www.linkedin.com/in/sajansshergill" target="_blank">🔗</a>
         <a href="https://github.com/sajansshergill" target="_blank">🐙</a>
       </div>
     </div>
     <div class="intro-text">
       <h2>Hello!</h2>
-      <p>Here's who I am & what I do</p>
+      <h3>Here's who I am & what I do</h3>
       <div class="intro-buttons">
         <button onclick="scrollToSection('projects')">Projects</button>
         <button onclick="scrollToSection('dashboards')">Dashboards</button>
@@ -59,7 +71,7 @@
 
   <section id="project-details" style="display:none; padding: 2rem;"></section>
 
-  <footer>
+  <footer id="contact">
     <p>Designed by Sajan Singh | © 2025</p>
   </footer>
 </body>

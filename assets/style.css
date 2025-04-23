@@ -3,87 +3,156 @@
 body {
   margin: 0;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #fff5f5;
+  background-color: #fef6f6;
   color: #333;
+}
+
+/* NAVBAR */
+nav {
+  background-color: #ffffff;
+  border-bottom: 1px solid #f0e5e5;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+nav .logo {
+  font-weight: bold;
+  color: #800000;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.3s ease;
+}
+
+nav ul li a:hover {
+  color: #b71c1c;
 }
 
 header.intro {
   display: flex;
   flex-wrap: wrap;
-  padding: 2rem;
-  background-color: #fff0f0;
-  border-bottom: 1px solid #f2dede;
+  padding: 3rem 2rem;
+  background-color: #fff7f7;
+  border-bottom: 1px solid #e0d4d4;
+  justify-content: center;
 }
 
 .profile-card {
-  background-color: #fefefe;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-  padding: 2rem;
+  background-color: #fdfaf9;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  padding: 2rem 1.5rem;
   text-align: center;
-  flex: 1 1 280px;
-  margin-right: 2rem;
+  max-width: 320px;
+  margin: 1rem;
 }
 
 .profile-img {
-  width: 150px;
-  height: 150px;
+  width: 140px;
+  height: 140px;
   border-radius: 50%;
   object-fit: cover;
   margin-bottom: 1rem;
+  border: 5px solid #fff0f0;
 }
 
 .profile-card h1 {
-  margin: 0;
+  margin: 0.5rem 0 0.2rem;
   font-size: 1.8rem;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .profile-card p {
-  margin-top: 0.5rem;
-  color: #666;
+  margin: 0.3rem 0;
   font-weight: 500;
+  color: #444;
+  font-size: 0.95rem;
 }
 
 .social-icons {
   margin-top: 1rem;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
 }
 
 .social-icons a {
   margin: 0 0.5rem;
-  color: #111;
+  color: #333;
   text-decoration: none;
 }
 
 .intro-text {
-  flex: 2;
-  min-width: 300px;
+  max-width: 700px;
+  margin: 1rem;
+  text-align: left;
 }
 
 .intro-text h2 {
-  font-size: 2.5rem;
-  margin-bottom: 0;
-  color: #222;
+  font-size: 3rem;
+  margin-bottom: 0.2rem;
+  font-weight: bold;
+  color: #2d2d2d;
 }
 
-.intro-text .intro-buttons {
-  margin: 1rem 0;
+.intro-text h3 {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #444;
+  font-weight: 400;
+}
+
+.intro-buttons {
+  margin: 1.5rem 0;
 }
 
 .intro-buttons button {
-  background-color: #b11226;
+  background-color: #b71c1c;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
-  margin: 0.2rem;
+  margin: 0.3rem;
   font-weight: bold;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
 }
 
 .intro-buttons button:hover {
-  background-color: #8a0f1e;
+  background-color: #8e1313;
+}
+
+.intro-text p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-top: 0.5rem;
+}
+
+ul {
+  padding-left: 1.4rem;
+}
+
+ul li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
 }
 
 .project-grid {
@@ -95,9 +164,9 @@ header.intro {
 }
 
 .project-card {
-  background: white;
+  background: #fffaf9;
   border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
   padding: 1.5rem;
   text-align: center;
   cursor: pointer;
@@ -105,8 +174,8 @@ header.intro {
 }
 
 .project-card:hover {
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
 }
 
 #project-details {
@@ -120,8 +189,8 @@ header.intro {
 
 footer {
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem;
   background: #f9f9f9;
-  color: #999;
+  color: #888;
   font-size: 0.9rem;
 }
