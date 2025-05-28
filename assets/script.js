@@ -38,3 +38,16 @@ window.addEventListener("scroll", () => {
     header.classList.remove("scrolled");
   }
 });
+
+// Scroll-triggered animation (optional)
+const certCards = document.querySelectorAll('.cert-card');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+certCards.forEach(card => observer.observe(card));
