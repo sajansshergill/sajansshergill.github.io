@@ -1,86 +1,131 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sajan Singh | Data Analyst Portfolio</title>
-  <link rel="stylesheet" href="assets/style.css">
-  <script defer src="assets/script.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sajan Singh Shergill | Portfolio</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      font-family: 'Segoe UI', sans-serif;
+      scroll-behavior: smooth;
+      height: 100%;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      padding: 20px 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+    }
+
+    nav {
+      display: flex;
+      gap: 35px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f06292;
+    }
+
+    .hero {
+      position: relative;
+      height: 100vh;
+      background-image: url("your-background-image.png");
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+
+    .hero-text {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      font-weight: 700;
+    }
+
+    .hero-text p {
+      font-size: 1.25rem;
+      font-weight: 400;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      nav {
+        gap: 16px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-text p {
+        font-size: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-  <nav>
-    <div class="logo">Sajan Singh</div>
-    <ul>
-      <li><a href="#about">About Me</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#dashboards">Dashboards</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
 
-  <header class="intro" id="about">
-    <div class="profile-card">
-      <img src="assets/images/profile.png" alt="Sajan Singh" class="profile-img">
-      <h1>Sajan Singh</h1>
-      <div class="title-line"></div>
-      <p class="role">Data Analyst | ML Intern</p>
-      <div class="social-icons">
-        <a href="https://www.linkedin.com/in/sajansshergill" target="_blank">
-          <img src="assets/linkedin.png" alt="LinkedIn">
-        </a>
-        <a href="https://github.com/sajansshergill" target="_blank">
-          <img src="assets/github.png" alt="GitHub">
-        </a>
-        <a href="#">
-          <img src="assets/tableau.png" alt="Tableau">
-        </a>
-      </div>
-    </div>
-    <div class="intro-text">
-      <h2>Hello!</h2>
-      <h3>Here's who I am & what I do</h3>
-      <div class="intro-buttons">
-        <button onclick="scrollToSection('background')">Background</button>
-        <button onclick="scrollToSection('projects')">Projects</button>
-        <button onclick="scrollToSection('portfolio')">Portfolio</button>
-        <button onclick="scrollToSection('dashboards')">Dashboards</button>
-      </div>
-      <p>Hi! I’m Sajan Singh Shergill, a data-driven problem solver currently pursuing my Master’s in Data Science at Pace University. With over three years of experience in software quality assurance, I’ve worked extensively in agile development environments across fintech and edtech domains. My foundation in QA has given me a unique edge — a deep understanding of product usability, process optimization, and the discipline of testing things thoroughly before scaling. This background has shaped my approach as I transition into the world of data science and machine learning.</p>
-      <p>Over the years, I’ve grown passionate about transforming raw, complex data into insights that guide meaningful business decisions. Whether it's building predictive models to analyze customer churn or visualizing energy demand trends using Facebook Prophet, I enjoy solving real-world problems at the intersection of technology, analytics, and strategy. My hands-on experience spans tools like Python, SQL, Power BI, Tableau, and Excel — with projects ranging from political ad-spend analysis to food delivery profitability and infrastructure forecasting.</p>
-      <p>I take pride in my ability to blend technical expertise with collaboration. Leading QA teams and working with cross-functional stakeholders have taught me the importance of communication, clarity, and empathy in tech. From automating testing suites to crafting dashboards that highlight financial outliers, I aim to deliver solutions that are not just smart, but also usable and scalable.</p>
-      <p>Above all, I’m someone who learns fast, adapts quickly, and strives to make a positive impact. Whether I’m streamlining operational workflows, digging into messy datasets, or training machine learning models, I bring curiosity and drive to everything I do. I’m excited about opportunities where I can contribute to data-driven innovation and continue growing as a data professional.</p>
-    </div>
+  <!-- Navigation -->
+  <header>
+    <nav>
+      <a href="#about">ABOUT</a>
+      <a href="#education">EDUCATION</a>
+      <a href="#experience">EXPERIENCE</a>
+      <a href="#projects">PROJECTS</a>
+      <a href="#certifications">CERTIFICATIONS</a>
+      <a href="#gallery">GALLERY</a>
+      <a href="#contact">CONTACT</a>
+    </nav>
   </header>
 
-  <main id="projects" class="project-grid">
-    <div class="project-card" onclick="loadProject('commission')">
-      <h2>Commission & Contract Data Quality Dashboard</h2>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>Ruchi Bhatia</h1>
+      <p>Product Marketing Manager</p>
     </div>
-    <div class="project-card" onclick="loadProject('workflow')">
-      <h2>Financial Workflow Optimization Using Python</h2>
-    </div>
-    <div class="project-card" onclick="loadProject('disparities')">
-      <h2>Exploratory Analysis on Commission Disparities</h2>
-    </div>
-    <div class="project-card" onclick="loadProject('bi-report')">
-      <h2>Ad-Hoc BI Report for Stakeholders</h2>
-    </div>
-    <div class="project-card" onclick="loadProject('contract-lifecycle')">
-      <h2>Contract Lifecycle Simulation Project</h2>
-    </div>
-    <div class="project-card" onclick="loadProject('background')">
-      <h2>Background</h2>
-    </div>
-    <div class="project-card" onclick="loadProject('portfolio')">
-      <h2>Portfolio</h2>
-    </div>
-  </main>
+  </section>
 
-  <section id="project-details" style="display:none; padding: 2rem;"></section>
-
-  <footer id="contact">
-    <p>Designed by Sajan Singh | © 2025</p>
-  </footer>
 </body>
 </html>
