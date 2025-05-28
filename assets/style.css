@@ -259,6 +259,11 @@ nav a:hover::after {
   object-fit: contain;
   margin-bottom: 20px;
   border-radius: 8px;
+  transition: transform 0.4s ease-in-out;
+}
+
+.education-card:hover img {
+  transform: scale(1.08);
 }
 
 .edu-info h3 {
