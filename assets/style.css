@@ -114,3 +114,95 @@ nav a:hover::after {
     font-size: calc(1rem + 3px);
   }
 }
+
+.about-detail-section {
+  padding: 80px 40px;
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+}
+
+.about-card {
+  background-color: #fff;
+  max-width: 1100px;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
+  display: flex;
+  gap: 40px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.left-panel {
+  flex: 1;
+  min-width: 250px;
+}
+
+.right-panel {
+  flex: 2;
+  min-width: 300px;
+}
+
+.profile-img {
+  width: 180px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto 20px auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.skills-section {
+  margin-bottom: 20px;
+}
+
+.skills-section h4 {
+  margin-bottom: 6px;
+  font-weight: 600;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.skills-section ul {
+  padding-left: 20px;
+  list-style: disc;
+}
+
+.skills-section p {
+  color: #333;
+  line-height: 1.5;
+}
+
+.right-panel h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.right-panel hr {
+  border: none;
+  height: 3px;
+  background: #007bff;
+  width: 60px;
+  margin-bottom: 20px;
+}
+
+.right-panel p {
+  margin-bottom: 18px;
+  line-height: 1.7;
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .about-card {
+    flex-direction: column;
+    padding: 30px;
+  }
+
+  .profile-img {
+    margin: 0 auto 20px;
+  }
+
+  .left-panel, .right-panel {
+    width: 100%;
+  }
+}
