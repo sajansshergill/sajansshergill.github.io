@@ -1,3 +1,4 @@
+// Typing Effect
 const roles = ["Data Analyst", "Data Scientist"];
 const typingSpeed = 100;
 const erasingSpeed = 50;
@@ -6,7 +7,6 @@ const delayBetweenWords = 1000;
 let roleIndex = 0;
 let charIndex = 0;
 let isDeleting = false;
-
 const textElement = document.getElementById("typing-text");
 
 function typeEffect() {
@@ -29,3 +29,12 @@ function typeEffect() {
 
 document.addEventListener("DOMContentLoaded", typeEffect);
 
+// Scroll detection for header style
+window.addEventListener("scroll", () => {
+  const header = document.getElementById("main-header");
+  if (window.scrollY > 100) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
