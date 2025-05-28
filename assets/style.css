@@ -42,7 +42,7 @@ nav a::after {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #f06292;
+  background-color: white;
   transition: width 0.3s ease-in-out;
 }
 
@@ -57,7 +57,7 @@ nav a:hover::after {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url("your-background-image.png"); /* Replace this */
+  background-image: url("assets/image/bg.png"); 
   background-size: cover;
   background-position: center;
   display: flex;
@@ -82,12 +82,12 @@ nav a:hover::after {
 
 .hero-text h1 {
   font-size: 3rem; /* original */
-  font-size: calc(3rem + 5px); /* increased by 5px */
+  font-size: calc(3rem + 15px); 
   font-weight: 700;
 }
 
 .hero-text p {
-  font-size: calc(1.25rem + 3px); /* increased by 3px */
+  font-size: calc(1.25rem + 10px); 
   font-weight: 400;
   margin-top: 10px;
   min-height: 30px;
