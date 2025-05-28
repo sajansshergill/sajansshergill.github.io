@@ -389,10 +389,18 @@ nav a:hover::after {
   background: #fff;
   border-radius: 14px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
-  width: 320px;
+  flex: 1 1 calc(33.333% - 40px); /* 3 per row with gap */
+  max-width: 320px;
   padding: 20px;
   text-align: center;
   transition: transform 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  .experience-card {
+    flex: 1 1 100%;
+    max-width: 90%;
+  }
 }
 
 .experience-card:hover {
