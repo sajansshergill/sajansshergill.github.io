@@ -47,7 +47,7 @@ nav a::after {
 }
 
 nav a:hover {
-  color: #f06292;
+  color: #ffff;
 }
 
 nav a:hover::after {
@@ -57,7 +57,7 @@ nav a:hover::after {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url("assets/image/bg.png"); 
+  background-image: url("assets/images/bg.png"); 
   background-size: cover;
   background-position: center;
   display: flex;
