@@ -41,7 +41,7 @@ nav a:hover {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url("/Users/sajanshergill/Desktop/sajansshergill.github.io-1/assets/images/bg.png"); 
+  background-image: url("assets/images/bg.png"); 
   background-size: cover;
   background-position: center;
   display: flex;
