@@ -10,18 +10,15 @@ body, html {
   height: 100%;
 }
 
-/* Fixed clean white menu bar */
 header {
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
-  background-color: white;
   padding: 20px 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  z-index: 2;
 }
 
 nav {
@@ -30,10 +27,10 @@ nav {
 }
 
 nav a {
-  color: #007bff; /* Blue */
+  color: white;
   text-decoration: none;
-  font-size: 1.4rem;
-  font-weight: 600;
+  font-size: 1.4rem; /* increased from 0.9rem (~14.4px) to ~19px */
+  font-weight: 500;
   position: relative;
   transition: color 0.3s;
 }
@@ -45,8 +42,14 @@ nav a::after {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #007bff;
+  background-color: #ffff;
   transition: width 0.3s ease-in-out;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: #ffff;
+  font-weight: bold;
 }
 
 nav a:hover::after {
@@ -56,50 +59,47 @@ nav a:hover::after {
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url("/assets/images/bg.png"); /* Replace this with your real image path */
+  background-image: url("/assets/images/bg.png"); 
   background-size: cover;
   background-position: center;
-  background-attachment: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding-top: 100px; /* To offset fixed header */
 }
 
-.hero-text {
-  color: white;
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
 }
 
+.hero-text {
+  position: relative;
+  z-index: 2;
+  color: white;
+}
+
 .hero-text h1 {
-  font-size: calc(3rem + 15px);
+  font-size: 3rem; /* original */
+  font-size: calc(3rem + 15px); /* increased by 5px */
   font-weight: 700;
 }
 
 .hero-text p {
-  font-size: calc(1.25rem + 10px);
+  font-size: calc(1.25rem + 10px); /* increased by 3px */
   font-weight: 400;
   margin-top: 10px;
   min-height: 30px;
 }
 
-.about-section {
-  padding: 120px 60px 100px;
-  background-color: #f9f9f9;
-}
-
-.about-section h2 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-}
-
-.about-section p {
-  font-size: 1.1rem;
-  max-width: 800px;
-}
-
 @media (max-width: 768px) {
+  header {
+    padding: 20px;
+  }
+
   nav {
     gap: 16px;
     flex-wrap: wrap;
@@ -112,9 +112,5 @@ nav a:hover::after {
 
   .hero-text p {
     font-size: calc(1rem + 3px);
-  }
-
-  .about-section {
-    padding: 60px 30px;
   }
 }
