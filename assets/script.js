@@ -71,22 +71,6 @@ window.addEventListener('click', (e) => {
   }
 });
 
-// ... (Your existing Typing Effect and Scroll Header logic) ...
-
-// Scroll-triggered animation for cert cards (keep this as is)
-const certCards = document.querySelectorAll('.cert-card');
-
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-certCards.forEach(card => observer.observe(card));
-
-
 // --- NEW/UPDATED MODAL LOGIC FOR PROJECTS ---
 
 // Project Data - IMPORTANT: Ensure this array matches your HTML data-project-index
