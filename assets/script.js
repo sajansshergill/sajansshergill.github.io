@@ -53,39 +53,12 @@ const observer = new IntersectionObserver((entries) => {
 certCards.forEach(card => observer.observe(card));
 
 // Modal cart logic
+const openModalBtn = document.getElementById('openModalBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeModalBtn = document.getElementById('closeModalBtn');
-const modalImg = document.getElementById('modalProjectImg');
-const modalTitle = document.getElementById('modalProjectTitle');
-const modalLink = document.getElementById('modalProjectLink');
 
-const projectData = [
-  {
-    title: "Customer Churn Prediction & Insights Dashboard",
-    img: "/assets/images/customer-churn-prediction-powerbi.png",
-    link: "https://github.com/sajansshergill/subscription-service-churn"
-  },
-  {
-    title: "Intern Onboarding Analytics Dashboard",
-    img: "/assets/images/intern-onboarding-analytics-powerbi.png",
-    link: "https://github.com/sajansshergill/intern-onboarding-analytics"
-  },
-  {
-    title: "PromptEval Dashboard",
-    img: "/assets/images/promptEval-powerbi.png",
-    link: "https://github.com/sajansshergill/PromptEval"
-  }
-];
-
-document.querySelectorAll('.open-project-modal-btn').forEach(button => {
-  button.addEventListener('click', (e) => {
-    const index = e.target.dataset.index;
-    const project = projectData[index];
-    modalImg.src = project.img;
-    modalTitle.textContent = project.title;
-    modalLink.href = project.link;
-    modalOverlay.style.display = 'flex';
-  });
+openModalBtn.addEventListener('click', () => {
+  modalOverlay.style.display = 'flex';
 });
 
 closeModalBtn.addEventListener('click', () => {
@@ -97,4 +70,3 @@ window.addEventListener('click', (e) => {
     modalOverlay.style.display = 'none';
   }
 });
-
