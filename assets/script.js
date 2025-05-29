@@ -88,19 +88,18 @@ const projectsData = [
   {
     title: "AI-Enhanced Job Listings Analyzer - Streamlit Dashboard",
     image: "/assets/images/ai-enchanced-remote-joblisting-streamlit.png",
-    githubLink: "https://github.com/sajansshergill/ai-enhanced-job-listings-analyzer" // <--- IMPORTANT: Ensure this GitHub link is correct for this project
+    githubLink: "https://github.com/sajansshergill/job-listing-analyzer" 
   },
   {
     title: "Adaptive Infrastructure Performance Monitoring - Streamlit Dashboard",
     image: "/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png",
-    githubLink: "https://github.com/sajansshergill/adaptive-infrastructure-performance-monitoring" // <--- IMPORTANT: Ensure this GitHub link is correct for this project
+    githubLink: "https://github.com/sajansshergill/performance-monitoring" 
   },
   {
     title: "PromptEval: Testing and Documenting the Effectiveness of AI Prompts using Python + Power BI",
     image: "/assets/images/promptEval-powerbi.png",
-    githubLink: "https://github.com/sajansshergill/PromptEval/tree/main"
+    githubLink: "https://github.com/sajansshergill/PromptEval"
   }
-  // Add more project objects here as needed, ensuring their index matches HTML data-project-index
 ];
 
 let currentProjectIndex = 0; // Tracks which project is currently displayed in the modal
