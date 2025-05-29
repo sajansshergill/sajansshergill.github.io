@@ -762,3 +762,12 @@ nav a:hover::after {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min-width for more columns if desired */
   }
 }
+
+.modal-cart img.modal-img {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  border: 2px solid #000; /* Black border */
+}
