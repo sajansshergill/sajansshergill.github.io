@@ -53,16 +53,31 @@ const observer = new IntersectionObserver((entries) => {
 certCards.forEach(card => observer.observe(card));
 
 // Modal cart logic
-const openModalBtn = document.getElementById('openModalBtn');
+\const openModalBtn = document.getElementById('openModalBtn');
 const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtn = document.getElementById('closeModalBtn');
+const closeModalBtn = document.getElementById('closeModalBtn'); // This targets the main close button
+
+// Select all close buttons for individual images
+const individualCloseBtns = document.querySelectorAll('.close-modal-btn');
 
 openModalBtn.addEventListener('click', () => {
   modalOverlay.style.display = 'flex';
 });
 
+// Event listener for the main close button
 closeModalBtn.addEventListener('click', () => {
   modalOverlay.style.display = 'none';
+});
+
+// Event listeners for individual close buttons
+individualCloseBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    // This assumes clicking any of these individual 'x' buttons should also close the entire modal.
+    // If they are meant to hide just their specific image/project within the modal,
+    // your modal structure needs to change to have individual project cards that can be hidden.
+    // For now, this will close the entire modal.
+    modalOverlay.style.display = 'none';
+  });
 });
 
 window.addEventListener('click', (e) => {
