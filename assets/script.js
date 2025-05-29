@@ -51,3 +51,22 @@ const observer = new IntersectionObserver((entries) => {
 }, { threshold: 0.1 });
 
 certCards.forEach(card => observer.observe(card));
+
+// Modal cart logic
+const openModalBtn = document.getElementById('openModalBtn');
+const modalOverlay = document.getElementById('modalOverlay');
+const closeModalBtn = document.getElementById('closeModalBtn');
+
+openModalBtn.addEventListener('click', () => {
+  modalOverlay.style.display = 'flex';
+});
+
+closeModalBtn.addEventListener('click', () => {
+  modalOverlay.style.display = 'none';
+});
+
+window.addEventListener('click', (e) => {
+  if (e.target === modalOverlay) {
+    modalOverlay.style.display = 'none';
+  }
+});
