@@ -71,3 +71,15 @@ window.addEventListener('click', (e) => {
   }
 });
 
+
+function openModal(imageSrc, title, link) {
+  document.getElementById("modalImage").src = imageSrc;
+  document.getElementById("modalTitle").textContent = title;
+  document.getElementById("modalLink").href = link;
+
+  document.getElementById("modalOverlay").classList.add("active");
+}
+
+document.getElementById("closeModalBtn").addEventListener("click", () => {
+  document.getElementById("modalOverlay").classList.remove("active");
+});
