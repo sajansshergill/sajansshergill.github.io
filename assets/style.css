@@ -513,3 +513,96 @@ nav a:hover::after {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Projects and Publications Section */
+#projects {
+  padding: 80px 40px; /* Adjusted padding to match general section spacing */
+  background-color: #f8f8f8; /* Light background as seen in the image */
+  text-align: center;
+}
+
+#projects .section-heading {
+  font-size: 2.5rem; /* Matches image's heading size */
+  font-weight: 700;
+  margin-bottom: 40px;
+  position: relative;
+  display: inline-block;
+  color: #333; /* Darker text for heading */
+}
+
+#projects .section-heading::after {
+  content: '';
+  display: block;
+  width: 60px; /* Width of the blue line */
+  height: 4px; /* Thickness of the blue line */
+  background-color: #007bff; /* Blue color of the line */
+  margin: 8px auto 0; /* Centered margin below heading */
+  border-radius: 2px;
+}
+
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columns on large screens, adjust automatically */
+  gap: 30px; /* Space between cards */
+  max-width: 1200px; /* Max width of the grid container */
+  margin: 0 auto; /* Center the grid */
+  justify-items: center; /* Center items within their grid cells */
+  align-items: start; /* Align items to the start of their cells */
+}
+
+.project-item {
+  background-color: #ffffff;
+  border-radius: 12px; /* Slightly rounded corners */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%; /* Take full width of its grid cell */
+  max-width: 280px; /* Approximate width from image */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+  transform: translateY(-5px); /* Lift effect on hover */
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+}
+
+.project-item img {
+  width: 100%; /* Image takes full width of the card's content area */
+  max-width: 180px; /* Adjusted to fit the proportions in the image */
+  height: auto; /* Maintain aspect ratio */
+  margin-bottom: 20px; /* Space below image */
+  border-radius: 8px; /* Slight border-radius for images too */
+  object-fit: contain; /* Ensure the whole image is visible */
+}
+
+.project-button {
+  display: inline-block;
+  background-color: #007bff; /* Blue button color */
+  color: white;
+  padding: 10px 25px;
+  border-radius: 5px; /* Slightly rounded button corners */
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  white-space: nowrap; /* Prevent button text from wrapping */
+}
+
+.project-button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+
+  .project-item {
+    max-width: 90%; /* Allow cards to be wider on smaller screens */
+  }
+}
