@@ -1,4 +1,4 @@
-/* Universal Styles */
+/* --- Universal Styles --- */
 * {
   margin: 0;
   padding: 0;
@@ -11,25 +11,24 @@ body, html {
   height: 100%;
 }
 
-/* Header (Navigation Bar) */
+/* --- Header Styles --- */
 header {
-  position: fixed; /* Stays at the top of the viewport */
+  position: fixed;
   top: 0;
   width: 100%;
   padding: 20px 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 100; /* Ensures it's above other content */
-  background-color: transparent; /* Starts transparent */
-  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for changes */
+  z-index: 100;
+  background-color: transparent;
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Header style when scrolled */
 header.scrolled {
-  background-color: #ffffff; /* White background when scrolled */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 15px 60px; /* Slightly reduce padding to make it compact */
+  background-color: #ffffff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 15px 60px;
 }
 
 nav {
@@ -38,7 +37,7 @@ nav {
 }
 
 nav a {
-  color: white; /* Default color for nav links (over hero) */
+  color: white;
   text-decoration: none;
   font-size: 1.4rem;
   font-weight: 500;
@@ -46,9 +45,8 @@ nav a {
   transition: color 0.3s;
 }
 
-/* Nav link color when header is scrolled */
 header.scrolled nav a {
-  color: #333; /* Black text when scrolled */
+  color: #333;
 }
 
 nav a::after {
@@ -58,34 +56,33 @@ nav a::after {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #ffff; /* Default underline color (over hero) */
+  background-color: #ffff;
   transition: width 0.3s ease-in-out;
   font-weight: bold;
 }
 
-/* Underline color when header is scrolled */
 header.scrolled nav a::after {
-  background-color: #007bff; /* Blue underline when scrolled */
+  background-color: #007bff;
 }
 
 nav a:hover {
-  color: #ffff; /* Still white on hover for default */
+  color: #ffff;
   font-weight: bold;
 }
 
 header.scrolled nav a:hover {
-  color: #007bff; /* Blue on hover when scrolled */
+  color: #007bff;
 }
 
 nav a:hover::after {
   width: 100%;
 }
 
-/* Hero Section */
+/* --- Hero Section --- */
 .hero {
   position: relative;
   height: 100vh;
-  padding-top: 80px; /* Added padding to account for fixed header */
+  padding-top: 80px;
   background-image: url("/assets/images/bg.png");
   background-size: cover;
   background-position: center;
@@ -121,10 +118,9 @@ nav a:hover::after {
   min-height: 30px;
 }
 
-/* Responsive adjustments for Hero and Header */
 @media (max-width: 768px) {
   header {
-    padding: 15px 20px; /* Slightly less padding on scroll */
+    padding: 15px 20px;
   }
 
   nav {
@@ -142,377 +138,7 @@ nav a:hover::after {
   }
 }
 
-/* Detailed About Me Section */
-.about-detail-section {
-  padding: 80px 40px;
-  background-color: #f4f4f4;
-  display: flex;
-  justify-content: center;
-}
-
-.about-card {
-  background-color: #fff;
-  max-width: 1100px;
-  border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
-  display: flex;
-  gap: 40px;
-  padding: 40px;
-  flex-wrap: wrap;
-}
-
-.left-panel {
-  flex: 1;
-  min-width: 250px;
-}
-
-.right-panel {
-  flex: 2;
-  min-width: 300px;
-}
-
-.profile-img {
-  width: 180px;
-  border-radius: 12px;
-  display: block;
-  margin: 0 auto 20px auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-.skills-section {
-  margin-bottom: 20px;
-}
-
-.skills-section h4 {
-  margin-bottom: 6px;
-  font-weight: 600;
-  border-bottom: 2px solid #007bff;
-  padding-bottom: 4px;
-  display: inline-block;
-}
-
-.skills-section ul {
-  padding-left: 20px;
-  list-style: disc;
-}
-
-.skills-section p {
-  color: #333;
-  line-height: 1.5;
-}
-
-.right-panel h3 {
-  font-size: 1.8rem;
-  margin-bottom: 10px;
-}
-
-.right-panel hr {
-  border: none;
-  height: 3px;
-  background: #007bff;
-  width: 60px;
-  margin-bottom: 20px;
-}
-
-.right-panel p {
-  margin-bottom: 18px;
-  line-height: 1.7;
-  color: #333;
-}
-
-@media (max-width: 768px) {
-  .about-card {
-    flex-direction: column;
-    padding: 30px;
-  }
-
-  .profile-img {
-    margin: 0 auto 20px;
-  }
-
-  .left-panel, .right-panel {
-    width: 100%;
-  }
-}
-
-/* Education Section */
-.education-card-section {
-  background-color: #f5f5f5;
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.section-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-  color: #111;
-}
-
-.section-heading::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #007bff;
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
-
-.education-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
-  justify-content: center;
-}
-
-.education-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  width: 320px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.education-card:hover {
-  transform: translateY(-8px);
-}
-
-.education-card img {
-  width: 100%;
-  max-height: 180px;
-  object-fit: contain;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  transition: transform 0.4s ease-in-out;
-}
-
-.education-card:hover img {
-  transform: scale(1.08);
-}
-
-.edu-info h3 {
-  font-size: 1.1rem;
-  color: #111;
-  margin-bottom: 6px;
-  font-weight: 600;
-}
-
-.edu-info p {
-  color: #555;
-  font-size: 0.95rem;
-}
-
-@media (max-width: 768px) {
-  .education-grid {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .education-card {
-    width: 90%;
-  }
-}
-
-/* Contact Section */
-.contact-section {
-  background-image: url("/assets/images/bg2.png");
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
-  padding: 100px 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.contact-card {
-  background-color: #fff;
-  padding: 40px;
-  border-radius: 14px;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  max-width: 600px;
-  width: 100%;
-}
-
-.contact-card h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #222;
-  margin-bottom: 8px;
-}
-
-.contact-line {
-  width: 60px;
-  height: 4px;
-  background-color: #007bff;
-  margin: 0 auto 25px auto;
-  border-radius: 2px;
-}
-
-.contact-email {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  margin-bottom: 25px;
-}
-
-.contact-email img {
-  width: 20px;
-  height: 20px;
-}
-
-.contact-email a {
-  color: #333;
-  font-size: 1rem;
-  text-decoration: none;
-}
-
-.social-icons {
-  display: flex;
-  justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-.social-icons a {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #fff;
-  border: 2px solid #007bff;
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  transition: transform 0.3s ease, background-color 0.3s;
-}
-
-.social-icons a img {
-  width: 22px;
-  height: 22px;
-}
-
-.social-icons a:hover {
-  transform: scale(1.1);
-  background-color: #e0f0ff;
-}
-
-/* Experience Section */
-.experience-section {
-  background-color: #f5f5f5;
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.experience-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 40px;
-  justify-content: center;
-  margin-top: 40px;
-}
-
-.experience-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
-  padding: 30px 20px;
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.experience-card:hover {
-  transform: translateY(-8px);
-}
-
-.experience-card img {
-  width: 100px;
-  height: auto;
-  object-fit: contain;
-  margin-bottom: 20px;
-  transition: transform 0.3s ease;
-}
-
-.experience-card:hover img {
-  transform: scale(1.08);
-}
-
-.experience-card h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 10px;
-  color: #111;
-}
-
-.experience-card p {
-  font-size: 0.95rem;
-  color: #666;
-  margin: 0;
-}
-
-@media (max-width: 768px) {
-  .experience-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* Certifications Section */
-#certifications {
-  padding: 80px 40px;
-  background-color: #f9f9f9;
-  text-align: center;
-}
-
-.section-title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  border-bottom: 4px solid #007bff;
-  display: inline-block;
-  padding-bottom: 8px;
-}
-
-.certification-grid {
-  display: flex; /* Changed from grid to flex */
-  flex-wrap: wrap; /* Allows items to wrap */
-  justify-content: center; /* Centers items in the current row */
-  gap: 24px;
-  max-width: 1200px; /* Optional: Sets a max width for the grid */
-  margin: 0 auto; /* Centers the entire grid container */
-  /* align-items: start; removed as it's not needed with flexbox here */
-}
-
-.cert-card {
-  background: #ffffff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  max-width: 320px; /* Max width for individual cards */
-  flex: 1 1 250px; /* Allows cards to grow/shrink, with a preferred basis */
-}
-
-.cert-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-}
-
-.cert-logo {
-  max-width: 120px;
-  height: auto;
-  margin-bottom: 16px;
-  transition: transform 0.4s ease;
-}
-
-.cert-logo:hover {
-  transform: scale(1.1);
-}
-
+/* --- Certification Section Animation --- */
 .cert-card {
   opacity: 0;
   transform: translateY(30px);
@@ -522,242 +148,4 @@ nav a:hover::after {
 .cert-card.visible {
   opacity: 1;
   transform: translateY(0);
-}
-
-/* Projects Section */
-#projects {
-  padding: 80px 40px;
-  background-color: #f8f8f8;
-  text-align: center;
-}
-
-#projects .section-heading {
-  font-size: 2.5rem;
-  font-weight: 700;
-  margin-bottom: 40px;
-  position: relative;
-  display: inline-block;
-  color: #333;
-}
-
-#projects .section-heading::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #007bff;
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
-
-.projects-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto;
-  justify-items: center;
-  align-items: start;
-}
-
-.project-item {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  width: 100%;
-  max-width: 280px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.project-item:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
-}
-
-.project-item img {
-  width: 100%;
-  max-width: 180px;
-  height: auto;
-  margin-bottom: 20px;
-  border-radius: 8px;
-  object-fit: contain;
-}
-
-.project-button {
-  display: inline-block;
-  background-color: #007bff;
-  color: white;
-  padding: 10px 25px;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: background-color 0.3s ease;
-  white-space: nowrap;
-}
-
-.project-button:hover {
-  background-color: #0056b3;
-}
-
-@media (max-width: 768px) {
-  .projects-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .project-item {
-    max-width: 90%;
-  }
-}
-
-/* Modal Styling */
-.modal-overlay {
-  display: none; /* Hidden by default */
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.7); /* Darker, more prominent overlay */
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-  backdrop-filter: blur(5px); /* Optional: adds a blur effect to background */
-}
-
-.modal-overlay.active {
-  display: flex; /* Show when active */
-}
-
-.modal-cart {
-  background-color: #fefefe;
-  padding: 30px;
-  border-radius: 12px;
-  width: 80%; /* Adjust width for better display */
-  max-width: 800px; /* Max width for larger screens */
-  max-height: 90vh; /* Allow vertical scroll for long content */
-  overflow-y: auto; /* Enable scrolling within the modal content */
-  position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-  text-align: center;
-  animation: fadeInScale 0.3s ease-out; /* Add animation */
-}
-
-@keyframes fadeInScale {
-  from {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.close-modal {
-  position: absolute;
-  top: 15px;
-  right: 20px;
-  font-size: 30px; /* Larger close button */
-  color: #888;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.close-modal:hover {
-  color: #333;
-}
-
-.modal-content-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 15px; /* Space between elements */
-}
-
-.modal-img {
-  width: 95%; /* Adjust width within modal */
-  max-height: 450px; /* Limit image height */
-  object-fit: contain; /* Ensure whole image is visible */
-  border: 2px solid #333; /* Darker border for image */
-  border-radius: 8px;
-  margin-bottom: 10px; /* Space below image */
-}
-
-.modal-cart h3 {
-  font-size: 1.8rem;
-  color: #222;
-  margin-bottom: 10px;
-}
-
-.modal-cart p a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.2s ease;
-}
-
-.modal-cart p a:hover {
-  color: #0056b3;
-}
-
-/* Modal Navigation Buttons */
-.modal-navigation {
-  display: flex;
-  justify-content: space-between;
-  width: 100%; /* Take full width of modal content */
-  margin-top: 25px;
-}
-
-.nav-button {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-}
-
-.nav-button:hover {
-  background-color: #0056b3;
-}
-
-.nav-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
-}
-
-/* Media queries for modal on smaller screens */
-@media (max-width: 768px) {
-  .modal-cart {
-    width: 95%;
-    padding: 20px;
-  }
-
-  .modal-cart h3 {
-    font-size: 1.4rem;
-  }
-
-  .modal-img {
-    max-height: 250px;
-  }
-
-  .modal-navigation {
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-
-/* Responsive adjustments for Certifications grid on smaller screens */
-@media (max-width: 768px) {
-  .certification-grid {
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjust min-width for more columns if desired */
-  }
 }
