@@ -85,3 +85,12 @@ openButtons.forEach(btn => {
 closeModalBtn.addEventListener("click", () => {
   modalOverlay.style.display = "none";
 });
+
+window.addEventListener("scroll", () => {
+  const header = document.getElementById("main-header");
+  if (window.scrollY > 100) {
+    header.classList.add("scrolled");
+  } else {
+    header.classList.remove("scrolled");
+  }
+});
