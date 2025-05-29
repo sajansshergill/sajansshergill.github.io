@@ -628,6 +628,7 @@ nav a:hover::after {
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(5px); /* Optional: adds a blur effect to background */
+  cursor: pointer;
 }
 
 .modal-overlay.active {
