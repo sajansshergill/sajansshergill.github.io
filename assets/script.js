@@ -53,7 +53,7 @@ const observer = new IntersectionObserver((entries) => {
 certCards.forEach(card => observer.observe(card));
 
 // Modal cart logic
-\const openModalBtn = document.getElementById('openModalBtn');
+const openModalBtn = document.getElementById('openModalBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeModalBtn = document.getElementById('closeModalBtn'); // This targets the main close button
 
