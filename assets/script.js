@@ -1,5 +1,5 @@
 // Typing Effect (keep existing)
-const roles = ["Data Analyst", "Data Scientist"];
+const roles = [ "Data Scientist", "Machine Learning", "Data Analyst"];
 const typingSpeed = 100;
 const erasingSpeed = 50;
 const delayBetweenWords = 1000;
