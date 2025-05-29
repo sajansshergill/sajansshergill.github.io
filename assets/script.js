@@ -52,122 +52,20 @@ const observer = new IntersectionObserver((entries) => {
 
 certCards.forEach(card => observer.observe(card));
 
-// Modal cart logic
+// Modal cart logic for old modal
 const openModalBtn = document.getElementById('openModalBtn');
 const modalOverlay = document.getElementById('modalOverlay');
 const closeModalBtn = document.getElementById('closeModalBtn');
 
-openModalBtn.addEventListener('click', () => {
-  modalOverlay.style.display = 'flex';
-});
-
-closeModalBtn.addEventListener('click', () => {
-  modalOverlay.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) {
-    modalOverlay.style.display = 'none';
-  }
-});
-
-// --- NEW/UPDATED MODAL LOGIC FOR PROJECTS ---
-
-// Project Data - IMPORTANT: Ensure this array matches your HTML data-project-index
-const projectsData = [
-  {
-    title: "Customer Churn Prediction & Insights Dashboard (Power BI)",
-    image: "/assets/images/customer-churn-prediction-powerbi.png",
-    githubLink: "https://github.com/sajansshergill/subscription-service-churn"
-  },
-  {
-    title: "Ethical Price Tracker - Streamlit Dashboard",
-    image: "/assets/images/ethical-price-tracker-dashboard-streamlit.png",
-    githubLink: "https://github.com/sajansshergill/ethical-price-tracker"
-  },
-  {
-    title: "AI-Enhanced Job Listings Analyzer - Streamlit Dashboard",
-    image: "/assets/images/ai-enchanced-remote-joblisting-streamlit.png",
-    githubLink: "https://github.com/sajansshergill/job-listing-analyzer" 
-  },
-  {
-    title: "Adaptive Infrastructure Performance Monitoring - Streamlit Dashboard",
-    image: "/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png",
-    githubLink: "https://github.com/sajansshergill/performance-monitoring" 
-  },
-  {
-    title: "PromptEval: Testing and Documenting the Effectiveness of AI Prompts using Python + Power BI",
-    image: "/assets/images/promptEval-powerbi.png",
-    githubLink: "https://github.com/sajansshergill/PromptEval"
-  }
-];
-
-let currentProjectIndex = 0; // Tracks which project is currently displayed in the modal
-
-
-// Get elements *inside* the modal that will display project data
-// These IDs are assumed to be present within your single modal-cart structure
-const modalProjectImage = document.getElementById('modalProjectImage');
-const modalProjectTitle = document.getElementById('modalProjectTitle');
-const modalProjectLink = document.getElementById('modalProjectLink');
-const prevProjectBtn = document.getElementById('prevProjectBtn');
-const nextProjectBtn = document.getElementById('nextProjectBtn');
-
-// Also select ALL buttons that are meant to open a project modal (using a class, as you have multiple)
-const openProjectModalBtns = document.querySelectorAll('.open-project-modal-btn');
-
-
-// Function to populate and open the modal
-function openProjectModal(index) {
-  if (index >= 0 && index < projectsData.length) {
-    currentProjectIndex = index;
-    const project = projectsData[currentProjectIndex];
-
-    if (modalProjectImage) modalProjectImage.src = project.image;
-    if (modalProjectTitle) modalProjectTitle.textContent = project.title;
-    if (modalProjectLink) modalProjectLink.href = project.githubLink;
-
-    // Update navigation button states
-    if (prevProjectBtn) prevProjectBtn.disabled = (currentProjectIndex === 0);
-    if (nextProjectBtn) nextProjectBtn.disabled = (currentProjectIndex === projectsData.length - 1);
-
-    if (modalOverlay) modalOverlay.style.display = 'flex'; // Use style.display for consistency
-  }
-}
-
-
-// Event listeners for opening modals
-// First, check if the single 'openModalBtn' exists and add its listener
-if (openModalBtn) {
+if (openModalBtn && closeModalBtn && modalOverlay) {
   openModalBtn.addEventListener('click', () => {
-    // If you only have ONE specific button with id="openModalBtn" for a project,
-    // you might need to manually set the index here, or rely on it being the first project.
-    // For a single button that opens the first project:
-    openProjectModal(0); // Assuming this specific button opens the first project (index 0)
-    // If this openModalBtn is intended for a different project, change the index.
+    modalOverlay.style.display = 'flex';
   });
-}
 
-// Then, add listeners for all other project-specific "VIEW" buttons using the class
-openProjectModalBtns.forEach(button => {
-  button.addEventListener("click", (event) => {
-    const index = parseInt(event.target.dataset.projectIndex);
-    if (!isNaN(index)) { // Ensure the data-project-index is a valid number
-      openProjectModal(index);
-    }
-  });
-});
-
-
-// Event listener for closing the modal via the 'x' button
-if (closeModalBtn) {
   closeModalBtn.addEventListener('click', () => {
-    if (modalOverlay) modalOverlay.style.display = 'none';
+    modalOverlay.style.display = 'none';
   });
-}
 
-// Close modal when clicking outside (on the overlay itself)
-if (modalOverlay) {
   window.addEventListener('click', (e) => {
     if (e.target === modalOverlay) {
       modalOverlay.style.display = 'none';
@@ -175,14 +73,95 @@ if (modalOverlay) {
   });
 }
 
-// Keyboard navigation (Escape key to close)
-document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && modalOverlay && modalOverlay.style.display === 'flex') {
-    modalOverlay.style.display = 'none';
+// --- MODAL LOGIC FOR PROJECTS ---
+const projectsData = [
+  {
+    title: "Customer Churn Prediction & Insights Dashboard (Power BI)",
+    image: "/assets/images/customer-churn-prediction-powerbi.png",
+    liveLink: "https://your-streamlit-app-1.streamlit.app/",
+    githubLink: "https://github.com/sajansshergill/subscription-service-churn"
+  },
+  {
+    title: "Ethical Price Tracker - Streamlit Dashboard",
+    image: "/assets/images/ethical-price-tracker-dashboard-streamlit.png",
+    liveLink: "https://your-ethical-price-tracker.streamlit.app/",
+    githubLink: "https://github.com/sajansshergill/ethical-price-tracker"
+  },
+  {
+    title: "AI-Enhanced Job Listings Analyzer - Streamlit Dashboard",
+    image: "/assets/images/ai-enchanced-remote-joblisting-streamlit.png",
+    liveLink: "https://your-job-listing-analyzer.streamlit.app/",
+    githubLink: "https://github.com/sajansshergill/job-listing-analyzer"
+  },
+  {
+    title: "Adaptive Infrastructure Performance Monitoring - Streamlit Dashboard",
+    image: "/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png",
+    liveLink: "https://your-performance-monitoring.streamlit.app/",
+    githubLink: "https://github.com/sajansshergill/performance-monitoring"
+  },
+  {
+    title: "PromptEval: Testing and Documenting the Effectiveness of AI Prompts using Python + Power BI",
+    image: "/assets/images/promptEval-powerbi.png",
+    liveLink: "https://your-prompt-eval-app.streamlit.app/",
+    githubLink: "https://github.com/sajansshergill/PromptEval"
+  }
+];
+
+let currentProjectIndex = 0;
+
+const modalProjectImage = document.getElementById('modalProjectImage');
+const modalProjectTitle = document.getElementById('modalProjectTitle');
+const modalProjectLink = document.getElementById('modalProjectLink');
+const prevProjectBtn = document.getElementById('prevProjectBtn');
+const nextProjectBtn = document.getElementById('nextProjectBtn');
+const projectModalOverlay = document.getElementById('projectModalOverlay');
+const closeProjectModalBtn = document.getElementById('closeProjectModalBtn');
+const openProjectModalBtns = document.querySelectorAll('.open-project-modal-btn');
+
+function openProjectModal(index) {
+  if (index >= 0 && index < projectsData.length) {
+    currentProjectIndex = index;
+    const project = projectsData[currentProjectIndex];
+
+    modalProjectImage.src = project.image;
+    modalProjectTitle.textContent = project.title;
+    modalProjectLink.href = project.liveLink;
+    modalProjectLink.textContent = "🔗 Live Streamlit App";
+
+    prevProjectBtn.disabled = (currentProjectIndex === 0);
+    nextProjectBtn.disabled = (currentProjectIndex === projectsData.length - 1);
+
+    projectModalOverlay.style.display = 'flex';
+  }
+}
+
+openProjectModalBtns.forEach(button => {
+  button.addEventListener("click", (event) => {
+    const index = parseInt(event.target.dataset.projectIndex);
+    if (!isNaN(index)) {
+      openProjectModal(index);
+    }
+  });
+});
+
+if (closeProjectModalBtn) {
+  closeProjectModalBtn.addEventListener('click', () => {
+    projectModalOverlay.style.display = 'none';
+  });
+}
+
+window.addEventListener('click', (e) => {
+  if (e.target === projectModalOverlay) {
+    projectModalOverlay.style.display = 'none';
   }
 });
 
-// Navigation inside the modal (Prev/Next buttons)
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && projectModalOverlay.style.display === 'flex') {
+    projectModalOverlay.style.display = 'none';
+  }
+});
+
 if (prevProjectBtn) {
   prevProjectBtn.addEventListener("click", () => {
     openProjectModal(currentProjectIndex - 1);
