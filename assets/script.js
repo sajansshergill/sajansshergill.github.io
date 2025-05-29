@@ -151,3 +151,36 @@ prevProjectBtn.addEventListener("click", () => {
 nextProjectBtn.addEventListener("click", () => {
   openProjectModal(currentProjectIndex + 1);
 });
+
+const openButtons = document.querySelectorAll(".openModalBtn");
+const modalOverlay = document.getElementById("modalOverlay");
+const modalContent = document.getElementById("modalContent");
+const closeModalBtn = document.getElementById("closeModalBtn");
+
+openButtons.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const project = btn.getAttribute("data-project");
+
+    let content = "";
+    if (project === "churn") {
+      content = `
+        <img src="/assets/images/customer-churn-prediction-powerbi.png" alt="Churn Dashboard" class="modal-img" />
+        <h3>Customer Churn Prediction & Insights Dashboard</h3>
+        <p><a href="https://github.com/sajansshergill/subscription-service-churn" target="_blank">🔗 GitHub Repository</a></p>
+      `;
+    } else if (project === "intern") {
+      content = `
+        <img src="/assets/images/intern-onboarding-analytics-powerbi.png" alt="Intern Dashboard" class="modal-img" />
+        <h3>Intern Onboarding Analytics & Resource Hub</h3>
+        <p><a href="https://github.com/sajansshergill/intern-onboarding-analytics" target="_blank">🔗 GitHub Repository</a></p>
+      `;
+    }
+
+    modalContent.innerHTML = content;
+    modalOverlay.classList.add("active");
+  });
+});
+
+closeModalBtn.addEventListener("click", () => {
+  modalOverlay.classList.remove("active");
+});
