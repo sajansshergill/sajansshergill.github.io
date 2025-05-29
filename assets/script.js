@@ -104,69 +104,93 @@ const projectsData = [
 
 let currentProjectIndex = 0; // Tracks which project is currently displayed in the modal
 
-// Get modal elements by their CORRECT IDs
-const projectModalOverlay = document.getElementById("projectModalOverlay");
-const closeProjectModalBtn = document.getElementById("closeProjectModalBtn");
-const modalProjectImage = document.getElementById("modalProjectImage");
-const modalProjectTitle = document.getElementById("modalProjectTitle");
-const modalProjectLink = document.getElementById("modalProjectLink");
-const prevProjectBtn = document.getElementById("prevProjectBtn");
-const nextProjectBtn = document.getElementById("nextProjectBtn");
 
-// Get all buttons that should open the modal
-const openProjectModalBtns = document.querySelectorAll(".open-project-modal-btn"); // Select by the class
+// Get elements *inside* the modal that will display project data
+// These IDs are assumed to be present within your single modal-cart structure
+const modalProjectImage = document.getElementById('modalProjectImage');
+const modalProjectTitle = document.getElementById('modalProjectTitle');
+const modalProjectLink = document.getElementById('modalProjectLink');
+const prevProjectBtn = document.getElementById('prevProjectBtn');
+const nextProjectBtn = document.getElementById('nextProjectBtn');
+
+// Also select ALL buttons that are meant to open a project modal (using a class, as you have multiple)
+const openProjectModalBtns = document.querySelectorAll('.open-project-modal-btn');
+
 
 // Function to populate and open the modal
 function openProjectModal(index) {
   if (index >= 0 && index < projectsData.length) {
-    currentProjectIndex = index; // Update the current index
-    const project = projectsData[currentProjectIndex]; // Get the project data
+    currentProjectIndex = index;
+    const project = projectsData[currentProjectIndex];
 
-    modalProjectImage.src = project.image; // Set modal image source
-    modalProjectTitle.textContent = project.title; // Set modal title
-    modalProjectLink.href = project.githubLink; // Set modal GitHub link
+    if (modalProjectImage) modalProjectImage.src = project.image;
+    if (modalProjectTitle) modalProjectTitle.textContent = project.title;
+    if (modalProjectLink) modalProjectLink.href = project.githubLink;
 
-    // Update navigation button states (enable/disable based on current index)
-    prevProjectBtn.disabled = (currentProjectIndex === 0);
-    nextProjectBtn.disabled = (currentProjectIndex === projectsData.length - 1);
+    // Update navigation button states
+    if (prevProjectBtn) prevProjectBtn.disabled = (currentProjectIndex === 0);
+    if (nextProjectBtn) nextProjectBtn.disabled = (currentProjectIndex === projectsData.length - 1);
 
-    projectModalOverlay.classList.add("active"); // Add "active" class to show the modal
+    if (modalOverlay) modalOverlay.style.display = 'flex'; // Use style.display for consistency
   }
 }
 
+
 // Event listeners for opening modals
+// First, check if the single 'openModalBtn' exists and add its listener
+if (openModalBtn) {
+  openModalBtn.addEventListener('click', () => {
+    // If you only have ONE specific button with id="openModalBtn" for a project,
+    // you might need to manually set the index here, or rely on it being the first project.
+    // For a single button that opens the first project:
+    openProjectModal(0); // Assuming this specific button opens the first project (index 0)
+    // If this openModalBtn is intended for a different project, change the index.
+  });
+}
+
+// Then, add listeners for all other project-specific "VIEW" buttons using the class
 openProjectModalBtns.forEach(button => {
   button.addEventListener("click", (event) => {
-    // Get the index from the 'data-project-index' attribute of the clicked button
     const index = parseInt(event.target.dataset.projectIndex);
-    openProjectModal(index); // Call the function to open the modal with this project
+    if (!isNaN(index)) { // Ensure the data-project-index is a valid number
+      openProjectModal(index);
+    }
   });
 });
 
+
 // Event listener for closing the modal via the 'x' button
-closeProjectModalBtn.addEventListener("click", () => {
-  projectModalOverlay.classList.remove("active"); // Remove "active" class to hide the modal
-});
+if (closeModalBtn) {
+  closeModalBtn.addEventListener('click', () => {
+    if (modalOverlay) modalOverlay.style.display = 'none';
+  });
+}
 
 // Close modal when clicking outside (on the overlay itself)
-projectModalOverlay.addEventListener("click", (event) => {
-  if (event.target === projectModalOverlay) { // Check if the click was directly on the overlay
-    projectModalOverlay.classList.remove("active");
-  }
-});
+if (modalOverlay) {
+  window.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) {
+      modalOverlay.style.display = 'none';
+    }
+  });
+}
 
 // Keyboard navigation (Escape key to close)
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && projectModalOverlay.classList.contains("active")) {
-    projectModalOverlay.classList.remove("active");
+  if (event.key === 'Escape' && modalOverlay && modalOverlay.style.display === 'flex') {
+    modalOverlay.style.display = 'none';
   }
 });
 
 // Navigation inside the modal (Prev/Next buttons)
-prevProjectBtn.addEventListener("click", () => {
-  openProjectModal(currentProjectIndex - 1); // Go to previous project
-});
+if (prevProjectBtn) {
+  prevProjectBtn.addEventListener("click", () => {
+    openProjectModal(currentProjectIndex - 1);
+  });
+}
 
-nextProjectBtn.addEventListener("click", () => {
-  openProjectModal(currentProjectIndex + 1); // Go to next project
-});
+if (nextProjectBtn) {
+  nextProjectBtn.addEventListener("click", () => {
+    openProjectModal(currentProjectIndex + 1);
+  });
+}
