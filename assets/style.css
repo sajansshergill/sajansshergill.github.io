@@ -1,3 +1,4 @@
+/* Universal Styles */
 * {
   margin: 0;
   padding: 0;
@@ -10,15 +11,25 @@ body, html {
   height: 100%;
 }
 
+/* Header (Navigation Bar) */
 header {
-  position: absolute;
+  position: fixed; /* Stays at the top of the viewport */
   top: 0;
   width: 100%;
   padding: 20px 60px;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 2;
+  z-index: 100; /* Ensures it's above other content */
+  background-color: transparent; /* Starts transparent */
+  transition: background-color 0.3s ease, padding 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for changes */
+}
+
+/* Header style when scrolled */
+header.scrolled {
+  background-color: #ffffff; /* White background when scrolled */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 15px 60px; /* Slightly reduce padding to make it compact */
 }
 
 nav {
@@ -27,12 +38,17 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: white; /* Default color for nav links (over hero) */
   text-decoration: none;
-  font-size: 1.4rem; /* increased from 0.9rem (~14.4px) to ~19px */
+  font-size: 1.4rem;
   font-weight: 500;
   position: relative;
   transition: color 0.3s;
+}
+
+/* Nav link color when header is scrolled */
+header.scrolled nav a {
+  color: #333; /* Black text when scrolled */
 }
 
 nav a::after {
@@ -42,24 +58,35 @@ nav a::after {
   bottom: -4px;
   width: 0%;
   height: 2px;
-  background-color: #ffff;
+  background-color: #ffff; /* Default underline color (over hero) */
   transition: width 0.3s ease-in-out;
   font-weight: bold;
 }
 
+/* Underline color when header is scrolled */
+header.scrolled nav a::after {
+  background-color: #007bff; /* Blue underline when scrolled */
+}
+
 nav a:hover {
-  color: #ffff;
+  color: #ffff; /* Still white on hover for default */
   font-weight: bold;
+}
+
+header.scrolled nav a:hover {
+  color: #007bff; /* Blue on hover when scrolled */
 }
 
 nav a:hover::after {
   width: 100%;
 }
 
+/* Hero Section */
 .hero {
   position: relative;
   height: 100vh;
-  background-image: url("/assets/images/bg.png"); 
+  padding-top: 80px; /* Added padding to account for fixed header */
+  background-image: url("/assets/images/bg.png");
   background-size: cover;
   background-position: center;
   display: flex;
@@ -83,21 +110,21 @@ nav a:hover::after {
 }
 
 .hero-text h1 {
-  font-size: 3rem; /* original */
-  font-size: calc(3rem + 15px); /* increased by 5px */
+  font-size: calc(3rem + 15px);
   font-weight: 700;
 }
 
 .hero-text p {
-  font-size: calc(1.25rem + 10px); /* increased by 3px */
+  font-size: calc(1.25rem + 10px);
   font-weight: 400;
   margin-top: 10px;
   min-height: 30px;
 }
 
+/* Responsive adjustments for Hero and Header */
 @media (max-width: 768px) {
   header {
-    padding: 20px;
+    padding: 15px 20px; /* Slightly less padding on scroll */
   }
 
   nav {
@@ -115,6 +142,7 @@ nav a:hover::after {
   }
 }
 
+/* Detailed About Me Section */
 .about-detail-section {
   padding: 80px 40px;
   background-color: #f4f4f4;
@@ -207,6 +235,7 @@ nav a:hover::after {
   }
 }
 
+/* Education Section */
 .education-card-section {
   background-color: #f5f5f5;
   padding: 100px 40px;
@@ -289,8 +318,9 @@ nav a:hover::after {
   }
 }
 
+/* Contact Section */
 .contact-section {
-  background-image: url("/assets/images/bg2.png"); /* replace with your image path */
+  background-image: url("/assets/images/bg2.png");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -372,31 +402,7 @@ nav a:hover::after {
   background-color: #e0f0ff;
 }
 
-.experience-section {
-  background-color: #f5f5f5;
-  padding: 100px 40px;
-  text-align: center;
-}
-
-.section-heading {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-bottom: 50px;
-  position: relative;
-  display: inline-block;
-  color: #111;
-}
-
-.section-heading::after {
-  content: '';
-  display: block;
-  width: 60px;
-  height: 4px;
-  background-color: #007bff;
-  margin: 8px auto 0;
-  border-radius: 2px;
-}
-
+/* Experience Section */
 .experience-section {
   background-color: #f5f5f5;
   padding: 100px 40px;
@@ -455,6 +461,7 @@ nav a:hover::after {
   }
 }
 
+/* Certifications Section */
 #certifications {
   padding: 80px 40px;
   background-color: #f9f9f9;
@@ -474,7 +481,7 @@ nav a:hover::after {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 24px;
-  justify-content: center; /* <-- ensures last row centers */
+  justify-content: center;
   align-items: start;
 }
 
@@ -514,100 +521,98 @@ nav a:hover::after {
   transform: translateY(0);
 }
 
-/* Projects and Publications Section */
+/* Projects Section */
 #projects {
-  padding: 80px 40px; /* Adjusted padding to match general section spacing */
-  background-color: #f8f8f8; /* Light background as seen in the image */
+  padding: 80px 40px;
+  background-color: #f8f8f8;
   text-align: center;
 }
 
 #projects .section-heading {
-  font-size: 2.5rem; /* Matches image's heading size */
+  font-size: 2.5rem;
   font-weight: 700;
   margin-bottom: 40px;
   position: relative;
   display: inline-block;
-  color: #333; /* Darker text for heading */
+  color: #333;
 }
 
 #projects .section-heading::after {
   content: '';
   display: block;
-  width: 60px; /* Width of the blue line */
-  height: 4px; /* Thickness of the blue line */
-  background-color: #007bff; /* Blue color of the line */
-  margin: 8px auto 0; /* Centered margin below heading */
+  width: 60px;
+  height: 4px;
+  background-color: #007bff;
+  margin: 8px auto 0;
   border-radius: 2px;
 }
 
-
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* 4 columns on large screens, adjust automatically */
-  gap: 30px; /* Space between cards */
-  max-width: 1200px; /* Max width of the grid container */
-  margin: 0 auto; /* Center the grid */
-  justify-items: center; /* Center items within their grid cells */
-  align-items: start; /* Align items to the start of their cells */
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  justify-items: center;
+  align-items: start;
 }
 
 .project-item {
   background-color: #ffffff;
-  border-radius: 12px; /* Slightly rounded corners */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   padding: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  width: 100%; /* Take full width of its grid cell */
-  max-width: 280px; /* Approximate width from image */
+  width: 100%;
+  max-width: 280px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .project-item:hover {
-  transform: translateY(-5px); /* Lift effect on hover */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12); /* Enhanced shadow on hover */
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
 }
 
 .project-item img {
-  width: 100%; /* Image takes full width of the card's content area */
-  max-width: 180px; /* Adjusted to fit the proportions in the image */
-  height: auto; /* Maintain aspect ratio */
-  margin-bottom: 20px; /* Space below image */
-  border-radius: 8px; /* Slight border-radius for images too */
-  object-fit: contain; /* Ensure the whole image is visible */
+  width: 100%;
+  max-width: 180px;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  object-fit: contain;
 }
 
 .project-button {
   display: inline-block;
-  background-color: #007bff; /* Blue button color */
+  background-color: #007bff;
   color: white;
   padding: 10px 25px;
-  border-radius: 5px; /* Slightly rounded button corners */
+  border-radius: 5px;
   text-decoration: none;
   font-size: 0.9rem;
   font-weight: 500;
   transition: background-color 0.3s ease;
-  white-space: nowrap; /* Prevent button text from wrapping */
+  white-space: nowrap;
 }
 
 .project-button:hover {
-  background-color: #0056b3; /* Darker blue on hover */
+  background-color: #0056b3;
 }
 
-/* Responsive adjustments */
 @media (max-width: 768px) {
   .projects-grid {
-    grid-template-columns: 1fr; /* Stack items on smaller screens */
+    grid-template-columns: 1fr;
   }
 
   .project-item {
-    max-width: 90%; /* Allow cards to be wider on smaller screens */
+    max-width: 90%;
   }
 }
 
-/* Modal overlay background */
+/* Modal Styling */
 .modal-overlay {
   display: none; /* Hidden by default */
   position: fixed;
@@ -615,156 +620,134 @@ nav a:hover::after {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5); /* dimmed background */
+  background-color: rgba(0, 0, 0, 0.7); /* Darker, more prominent overlay */
   z-index: 1000;
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px); /* Optional: adds a blur effect to background */
 }
 
-/* Modal cart box */
+.modal-overlay.active {
+  display: flex; /* Show when active */
+}
+
 .modal-cart {
   background-color: #fefefe;
-  width: 50vw;
-  height: 50vh;
+  padding: 30px;
   border-radius: 12px;
+  width: 80%; /* Adjust width for better display */
+  max-width: 800px; /* Max width for larger screens */
+  max-height: 90vh; /* Allow vertical scroll for long content */
+  overflow-y: auto; /* Enable scrolling within the modal content */
   position: relative;
-  padding: 20px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
-  animation: fadeInScale 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+  text-align: center;
+  animation: fadeInScale 0.3s ease-out; /* Add animation */
 }
 
-/* Close button */
-.close-modal {
-  position: absolute;
-  top: 14px;
-  right: 18px;
-  font-size: 1.8rem;
-  color: #555;
-  cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.close-modal:hover {
-  color: #000;
-}
-
-/* Modal animation */
 @keyframes fadeInScale {
-  0% {
+  from {
     opacity: 0;
-    transform: scale(0.85);
+    transform: scale(0.9);
   }
-  100% {
+  to {
     opacity: 1;
     transform: scale(1);
   }
 }
 
-/* Modal Cart Styles */
-.modal-overlay {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.5); /* dim background */
-  z-index: 999;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-cart {
-  background: #fffdf9; /* off-white */
-  width: 50%;
-  max-width: 700px;
-  padding: 30px;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-  position: relative;
-  text-align: center;
-}
-
 .close-modal {
   position: absolute;
-  top: 16px;
+  top: 15px;
   right: 20px;
-  font-size: 28px;
-  font-weight: bold;
-  color: #999;
+  font-size: 30px; /* Larger close button */
+  color: #888;
   cursor: pointer;
-  transition: color 0.3s;
+  transition: color 0.2s ease;
 }
 
 .close-modal:hover {
-  color: #000;
+  color: #333;
 }
 
-.modal-cart a {
-  color: #007bff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Modal image styling with black border */
-.modal-cart img.modal-img {
-  width: 100%;
-  max-height: 300px;
-  object-fit: contain;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  border: 2px solid #000;
-}
-
-
-.modal-cart {
-  background-color: #fefefe;
-  padding: 30px;
-  border-radius: 12px;
-  width: 50%;
-  max-height: 80vh;
-  overflow-y: auto;
-  position: relative;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+.modal-content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px; /* Space between elements */
 }
 
 .modal-img {
-  width: 100%;
-  border: 2px solid black;
+  width: 95%; /* Adjust width within modal */
+  max-height: 450px; /* Limit image height */
+  object-fit: contain; /* Ensure whole image is visible */
+  border: 2px solid #333; /* Darker border for image */
   border-radius: 8px;
-  margin-bottom: 20px;
-  object-fit: contain;
+  margin-bottom: 10px; /* Space below image */
 }
 
-.modal-link {
-  display: inline-block;
-  margin-top: 20px;
+.modal-cart h3 {
+  font-size: 1.8rem;
+  color: #222;
+  margin-bottom: 10px;
+}
+
+.modal-cart p a {
   color: #007bff;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
 }
 
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
+.modal-cart p a:hover {
+  color: #0056b3;
 }
 
-.modal-overlay.active {
+/* Modal Navigation Buttons */
+.modal-navigation {
   display: flex;
+  justify-content: space-between;
+  width: 100%; /* Take full width of modal content */
+  margin-top: 25px;
 }
 
-.close-modal {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 24px;
+.nav-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  color: #333;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.nav-button:hover {
+  background-color: #0056b3;
+}
+
+.nav-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Media queries for modal on smaller screens */
+@media (max-width: 768px) {
+  .modal-cart {
+    width: 95%;
+    padding: 20px;
+  }
+
+  .modal-cart h3 {
+    font-size: 1.4rem;
+  }
+
+  .modal-img {
+    max-height: 250px;
+  }
+
+  .modal-navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
