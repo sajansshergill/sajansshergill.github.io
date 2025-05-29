@@ -53,33 +53,35 @@ const observer = new IntersectionObserver((entries) => {
 certCards.forEach(card => observer.observe(card));
 
 // Modal cart logic
-const openModalBtn = document.getElementById('openModalBtn');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtn = document.getElementById('closeModalBtn');
+const openButtons = document.querySelectorAll(".openModalBtn");
+const modalOverlay = document.getElementById("modalOverlay");
+const modalContent = document.getElementById("modalContent");
+const closeModalBtn = document.getElementById("closeModalBtn");
 
-openModalBtn.addEventListener('click', () => {
-  modalOverlay.style.display = 'flex';
+openButtons.forEach(btn => {
+  btn.addEventListener("click", () => {
+    const project = btn.getAttribute("data-project");
+
+    let content = "";
+    if (project === "churn") {
+      content = `
+        <img src="/assets/images/churn-dashboard.png" class="modal-img" alt="Churn Dashboard" />
+        <h3>Customer Churn Prediction & Insights Dashboard</h3>
+        <a href="https://github.com/sajansshergill/subscription-service-churn" class="project-button" target="_blank">GitHub</a>
+      `;
+    } else if (project === "energy") {
+      content = `
+        <img src="/assets/images/energy-dashboard.png" class="modal-img" alt="Energy Dashboard" />
+        <h3>Energy Pricing and Cost Analysis Dashboard</h3>
+        <a href="https://github.com/sajansshergill/energy-cost-dashboard" class="project-button" target="_blank">GitHub</a>
+      `;
+    }
+
+    modalContent.innerHTML = content;
+    modalOverlay.style.display = "flex";
+  });
 });
 
-closeModalBtn.addEventListener('click', () => {
-  modalOverlay.style.display = 'none';
-});
-
-window.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) {
-    modalOverlay.style.display = 'none';
-  }
-});
-
-
-function openModal(imageSrc, title, link) {
-  document.getElementById("modalImage").src = imageSrc;
-  document.getElementById("modalTitle").textContent = title;
-  document.getElementById("modalLink").href = link;
-
-  document.getElementById("modalOverlay").classList.add("active");
-}
-
-document.getElementById("closeModalBtn").addEventListener("click", () => {
-  document.getElementById("modalOverlay").classList.remove("active");
+closeModalBtn.addEventListener("click", () => {
+  modalOverlay.style.display = "none";
 });

@@ -706,14 +706,16 @@ nav a:hover::after {
   font-weight: bold;
 }
 
+/* Modal image styling with black border */
 .modal-cart img.modal-img {
   width: 100%;
   max-height: 300px;
   object-fit: contain;
   margin-bottom: 20px;
   border-radius: 10px;
-  border: 2px solid #000; /* Black border */
+  border: 2px solid #000;
 }
+
 
 .modal-cart {
   background-color: #fefefe;
