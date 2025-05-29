@@ -659,3 +659,49 @@ nav a:hover::after {
     transform: scale(1);
   }
 }
+
+/* Modal Cart Styles */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* dim background */
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-cart {
+  background: #fffdf9; /* off-white */
+  width: 50%;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.close-modal {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #999;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-modal:hover {
+  color: #000;
+}
+
+.modal-cart a {
+  color: #007bff;
+  text-decoration: none;
+  font-weight: bold;
+}
