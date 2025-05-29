@@ -189,61 +189,58 @@
 <section id="projects">
   <h2 class="section-heading">PROJECTS</h2>
   <div class="projects-grid">
+
     <div class="project-item">
       <img src="/assets/images/github-profile-photo.png" alt="Github Profile" />
       <a href="https://github.com/sajansshergill" class="project-button">GITHUB</a>
     </div>
 
-<!-- Power BI Projects Section -->
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/power-bi-logo.jpeg" alt="Power BI Project" />
-    <button class="project-button" id="openModalBtn">VIEW</button>
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/power-bi-logo.jpeg" alt="Power BI Project Thumbnail" />
+      <button class="project-button open-project-modal-btn" data-project-index="0">VIEW</button>
+    </div>
 
-<!-- Modal Cart -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-cart">
-    <span class="close-modal" id="closeModalBtn">&times;</span>
-    <img src="/assets/images/customer-churn-prediction-powerbi.png" alt="Customer Churn Dashboard" class="modal-img" />
-    <h3>Customer Churn Prediction & Insights Dashboard</h3>
-    <p><a href="https://github.com/sajansshergill/subscription-service-churn" target="_blank">🔗 GitHub Repository</a></p> 
-    
-    <img src="/assets/images/intern-onboarding-analytics-powerbi.png" alt="Intern Onboarding Analytics & Resource Hub" class="modal-img" />
-    <h3>Intern Onboarding Analytics & Resource Hub</h3>
-    <p><a href="https://github.com/sajansshergill/intern-onboarding-analytics" target="_blank">🔗 GitHub Repository</a></p> 
-  
-    <img src="/assets/images/promptEval-powerbi.png" alt="Intern Onboarding Analytics & Resource Hub" class="modal-img" />
-    <h3>PromptEval: Testing and Documenting the Effectiveness of<br>AI Prompts using Python + Power BI    </h3>
-    <p><a href="https://github.com/sajansshergill/PromptEval/tree/main" target="_blank">🔗 GitHub Repository</a></p> 
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/ethical-price-tracker-dashboard-streamlit.png" alt="Ethical Price Tracker Project Thumbnail" />
+      <button class="project-button open-project-modal-btn" data-project-index="1">VIEW</button>
+      </div>
 
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/ethical-price-tracker-dashboard-streamlit.png" alt="Ethical Price Tracker Project" />
-    <a href="https://github.com/sajansshergill/ethical-price-tracker" class="project-button">GITHUB</a>
-    <button class="project-button" id="openModalBtn">Ethical Price Tracker - Streamlit Dashboard</button>
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/ai-enchanced-remote-joblisting-streamlit.png" alt="AI-Enhanced Job Listings Analyzer Project Thumbnail" />
+      <button class="project-button open-project-modal-btn" data-project-index="2">VIEW</button>
+    </div>
 
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/ai-enchanced-remote-joblisting-streamlit.png"" alt="AI-Enhanced Job Listings Analyzer Project" />
-    <button class="project-button" id="openModalBtn">AI-Enhanced Job Listings Analyzer - Streamlit Dashboard</button>
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png" alt="Adaptive Infrastructure Performance Monitoring Project Thumbnail" />
+      <button class="project="project-button open-project-modal-btn" data-project-index="3">VIEW</button>
+    </div>
 
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png" alt="Adaptive Infrastructure Performance Monitoring Project" />
-    <button class="project-button" id="openModalBtn">Adaptive Infrastructure Performance Monitoring - Streamlit Dashboard</button>
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/promptEval-powerbi.png" alt="PromptEval PowerBI Project Thumbnail" />
+      <button class="project-button open-project-modal-btn" data-project-index="4">VIEW</button>
+    </div>
 
-</div>
+  </div>
 </section>
+
+<div class="modal-overlay" id="projectModalOverlay">
+  <div class="modal-cart" id="projectModalCart">
+    <span class="close-modal" id="closeProjectModalBtn">&times;</span>
+    <div class="modal-content-wrapper">
+      <img src="" alt="Project Image" class="modal-img" id="modalProjectImage" />
+      <h3 id="modalProjectTitle"></h3>
+      <p><a href="#" target="_blank" id="modalProjectLink">🔗 GitHub Repository</a></p>
+      <div class="modal-navigation">
+        <button id="prevProjectBtn" class="nav-button">&lt; Prev</button>
+        <button id="nextProjectBtn" class="nav-button">Next &gt;</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="/assets/script.js"></script>
+</body>
+</html>
 
 <!-- Contact Section -->
 <section class="contact-section" id="contact">
