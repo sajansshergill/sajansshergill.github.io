@@ -11,15 +11,26 @@
 
   <!-- Navigation -->
   <header id="main-header">
-    <nav>
-      <a href="#about">ABOUT</a>
-      <a href="#education">EDUCATION</a>
-      <a href="#experience">EXPERIENCE</a>
-      <a href="#projects">PROJECTS</a>
-      <a href="#certifications">CERTIFICATIONS</a>
-      <a href="#gallery">GALLERY</a>
-      <a href="#contact">CONTACT</a>
-    </nav>
+    <div class="header-inner">
+      <nav>
+        <a href="#about">ABOUT</a>
+        <a href="#education">EDUCATION</a>
+        <a href="#experience">EXPERIENCE</a>
+        <a href="#projects">PROJECTS</a>
+        <a href="#certifications">CERTIFICATIONS</a>
+        <a href="#gallery">GALLERY</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+      <button
+        id="theme-toggle"
+        class="theme-toggle"
+        type="button"
+        aria-label="Toggle dark mode"
+        aria-pressed="false"
+      >
+        Dark mode
+      </button>
+    </div>
   </header>
 
   <!-- Hero Section -->
@@ -27,11 +38,15 @@
     <div class="hero-text">
       <h1>Sajan Singh Shergill</h1>
       <p id="typing-text"></p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary">Explore Projects</a>
+        <a href="#contact" class="btn btn-ghost">Contact Me</a>
+      </div>
     </div>
   </section>
 
 <!-- Detailed About Me Section -->
-<section class="about-detail-section">
+<section class="about-detail-section" id="about">
   <div class="about-card">
     <div class="left-panel">
       <img src="/assets/images/profile.png" alt="Profile Photo" class="profile-img" />
@@ -39,43 +54,41 @@
         <h4>Skills</h4>
         <ul>
           <li>Programming Languages: Python, SQL, Java</li>
-          <li>Web: HTML, CSS, JavaScript</li>
-          <li>Analytics & ML: Pandas, NumPy, scikit-learn</li>
+          <li>Data & ML: Machine learning, predictive modeling, experimentation (A/B testing)</li>
+          <li>Growth Measurement: Ads &amp; growth measurement, incrementality, lift modeling</li>
         </ul>
       </div>
       <div class="skills-section">
         <h4>Tools</h4>
         <ul>
-          <li>Database: MySQL, MongoDB</li>
-          <li>Visualization: Tableau, Power BI</li>
-          <li>Automation: Selenium, Postman</li>
+          <li>BI &amp; Analytics: Power BI, Tableau, Excel</li>
+          <li>Data &amp; ML: Pandas, NumPy, scikit-learn</li>
+          <li>Automation &amp; QA: Selenium, Postman, Jira</li>
         </ul>
       </div>
       <div class="skills-section">
         <h4>Software</h4>
-        <p>Jupyter, VS Code, Android Studio, Git</p>
+        <p>Jupyter, VS Code, Git, Postman</p>
       </div>
       <div class="skills-section">
         <h4>Domains</h4>
-        <p>Data Science, FinTech, Product Analytics</p>
+        <p>Product Data Science, Ads &amp; Growth Measurement, Experimentation, FinTech</p>
       </div>
     </div>
     <div class="right-panel">
       <h3>About me</h3>
       <hr />
-      <p>Hello! I'm Sajan Singh Shergill, a QA Lead turned Data Scientist<br>
-        with a passion for automation, analytics, and delivering insights that matter.
+      <p>Hello! I'm Sajan Singh Shergill, a Product Data Scientist focused on Ads &amp; Growth Measurement<br>
+        with a strong interest in incrementality, lift modeling, and experimentation.
       </p>
       <p>Currently pursuing my Master’s in Data Science at Pace University,<br>
-        I bring over 3 years of experience in software quality assurance and<br>
-        functional testing within agile development environments. My foundation<br>
-        in tech and testing has evolved into a strong interest and growing expertise =<br>
-        in data analytics and machine learning.      
+        I bring over 3 years of experience in software quality assurance and functional testing within agile development environments.<br>
+        My foundation in tech and testing has evolved into a growing expertise in data analytics and machine learning.
       </p>
       <p>Here’s a breakdown of my experience and skill set:<br>
 
         ✅ 3+ years of QA experience working across fintech and edtech domains.<br>
-        ✅ Hands-on experience in data analysis and visualization using Python, SQL, Excel & Power BI<br>
+        ✅ Hands-on experience in data analysis and visualization using Python, SQL, Excel &amp; Power BI<br>
         ✅ Trained in machine learning, predictive modeling, A/B testing, and data storytelling<br>
         ✅ Strong academic grounding in statistics, database management systems, and data structures<br>
         ✅ Previous roles included CI/CD pipeline testing, production support, and integration testing<br>
@@ -86,6 +99,10 @@
         1. 📊  Customer churn analysis using Random Forest<br>
         2. 📈 Marketing ad-spend analysis and ROI optimization<br>
         3. ⚡ Energy pricing and cost modeling<br>
+      </p>
+      <p>
+        I enjoy collaborating with cross-functional teams, building data pipelines, and turning business questions into measurable insights.<br>
+        If you’re hiring for a data analyst or ML intern, or want to connect—DM me on LinkedIn or drop an email at sajansshergill@gmail.com.
       </p>
     </div>
   </div>
@@ -100,7 +117,7 @@
       <img src="/assets/images/pace_university_logo.jpeg" alt="Pace University Logo" />
       <div class="edu-info">
         <h3>Master of Data Science</h3>
-        <p>2024 - 2026</p>
+        <p>Pace University (Seidenberg School of Computer Science &amp; Information Systems) • GPA: 3.6 • 2024 - 2026</p>
       </div>
     </div>
 
@@ -119,35 +136,46 @@
 <section class="experience-section" id="experience">
   <h2 class="section-heading">WORK EXPERIENCE</h2>
   <div class="experience-grid">
-    
     <div class="experience-card">
-      <img src="/assets/images/tianzhi_studios.png" alt="Eduvanz Logo" />
+      <img src="/assets/images/pace_university_logo.jpeg" alt="Pace University Logo" />
+      <h3>Graduate Student Assistant (External Relations)</h3>
+      <p>Oct 2025 – Present</p>
+    </div>
+
+    <div class="experience-card">
+      <img src="/assets/images/tianzhi_studios.png" alt="Tianzhi Studios Logo" />
+      <h3>Software Engineer in Testing (Unpaid)</h3>
+      <p>Sep 2025 – Oct 2025</p>
+    </div>
+
+    <div class="experience-card">
+      <img src="/assets/images/tianzhi_studios.png" alt="Tianzhi Studios Logo" />
       <h3>Software Engineer in Testing Intern</h3>
-      <p>July 2025 – September 2025</p>
+      <p>Jul 2025 – Sep 2025</p>
     </div>
 
     <div class="experience-card">
       <img src="/assets/images/eduvanz-logo.jpeg" alt="Eduvanz Logo" />
-      <h3>Software Developer in Testing</h3>
-      <p>November 2023 – June 2024</p>
-    </div>
-
-    <div class="experience-card">
-      <img src="/assets/images/eduvanz-logo.jpeg" alt="Eduvanz Logo" />
-      <h3>Quality Assurance Engineer</h3>
-      <p>February 2022 – June 2024</p>
+      <h3>Software Developer in Test</h3>
+      <p>Nov 2023 – Jun 2024</p>
     </div>
 
     <div class="experience-card">
       <img src="/assets/images/eduvanz-logo.jpeg" alt="Eduvanz Logo" />
       <h3>Lead Quality Assurance Analyst</h3>
-      <p>February 2022 – October 2023</p>
+      <p>Feb 2022 – Oct 2023</p>
     </div>
 
     <div class="experience-card">
       <img src="/assets/images/eduvanz-logo.jpeg" alt="Eduvanz Logo" />
-      <h3>Quality Assurance Intern</h3>
-      <p>September 2021 – January 2022</p>
+      <h3>Quality Assurance Engineer Level 1</h3>
+      <p>Feb 2022 – Jun 2024</p>
+    </div>
+
+    <div class="experience-card">
+      <img src="/assets/images/eduvanz-logo.jpeg" alt="Eduvanz Logo" />
+      <h3>QA Engineer Level 1</h3>
+      <p>Sep 2021 – Jan 2022</p>
     </div>
 
   </div>
@@ -156,154 +184,183 @@
 
 <section id="projects">
   <h2 class="section-heading">PROJECTS</h2>
-  <div class="projects-grid">
+  <p class="projects-subtitle">
+    Selected highlights plus your latest GitHub repositories (auto-fetched).
+  </p>
 
+  <div class="projects-grid projects-grid--highlights">
     <div class="project-item">
       <img src="/assets/images/github-profile-photo.png" alt="Github Profile" />
-      <a href="https://github.com/sajansshergill" class="project-button">GITHUB</a>
+      <a href="https://github.com/sajansshergill" class="project-button" target="_blank" rel="noopener noreferrer">GITHUB</a>
     </div>
 
-<!-- Power BI Projects Section -->
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/power-bi-logo.jpeg" alt="Power BI Project" />
-    <button class="project-button" id="openModalBtn">Power Bi Projects</button>
-  </div>
-</div>
+    <div class="project-item">
+      <img src="/assets/images/power-bi-logo.jpeg" alt="Power BI Project" />
+      <button class="project-button" id="openModalBtn" type="button">Power BI Projects</button>
+    </div>
 
-<!-- Other Projects -->
-<div class="projects-grid">
+    <div class="project-item">
+      <img src="/assets/images/ethical-price-tracker-dashboard-streamlit.png" alt="Ethical Price Tracker image" />
+      <a href="https://github.com/sajansshergill/ethical-price-tracker" class="project-button" target="_blank" rel="noopener noreferrer">Ethical Price Tracker</a>
+    </div>
 
-  <div class="project-item">
-    <img src="/assets/images/ethical-price-tracker-dashboard-streamlit.png" alt="Ethical Price Tracker image" />
-    <a href="https://github.com/sajansshergill/ethical-price-tracker" class="project-button">Ethical Price Tracker</a>
-  </div>
+    <div class="project-item">
+      <img src="/assets/images/ai-enchanced-remote-joblisting-streamlit.png" alt="AI-Enhanced Job Listings Analyzer image" />
+      <a href="https://github.com/sajansshergill/job-listing-analyzer" class="project-button" target="_blank" rel="noopener noreferrer">AI Job Listings Analyzer</a>
+    </div>
 
-</div>
-
-</div>
-<br>
-<br>
-<br>
-
-<!-- Power BI Projects Section - Modal Cart -->
-<div class="modal-overlay" id="modalOverlay">
-  <div class="modal-cart">
-    <span class="close-modal" id="closeModalBtn">&times;</span>
-    <img src="/assets/images/customer-churn-prediction-powerbi.png" alt="Customer Churn Dashboard" class="modal-img" />
-    <h3>Customer Churn Prediction & Insights Dashboard</h3>
-    <p><a href="https://github.com/sajansshergill/subscription-service-churn" target="_blank">🔗 GitHub Repository</a></p>
-    
-    <span class="close-modal" id="closeModalBtn">&times;</span>
-    <img src="/assets/images/intern-onboarding-analytics-powerbi.png" alt="Intern Onboarding Analytics Dashboard" class="modal-img" />
-    <h3>Intern Onboarding Analytics Dashboard</h3>
-    <p><a href="https://github.com/sajansshergill/intern-onboarding-analytics" target="_blank">🔗 GitHub Repository</a></p>
-
-    <span class="close-modal" id="closeModalBtn">&times;</span>
-    <img src="/assets/images/promptEval-powerbi.png" alt="PromptEval Dashboard" class="modal-img" />
-    <h3>PromptEval Dashboard</h3>
-    <p><a href="https://github.com/sajansshergill/PromptEval" target="_blank">🔗 GitHub Repository</a></p>
-
+    <div class="project-item">
+      <img src="/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png" alt="Infrastructure Performance Monitoring image" />
+      <a href="https://github.com/sajansshergill/performance-monitoring" class="project-button" target="_blank" rel="noopener noreferrer">Infrastructure Monitoring</a>
+    </div>
   </div>
 
-</div>
+  <!-- Power BI Projects Section - Modal Cart -->
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal-cart" role="dialog" aria-modal="true" aria-labelledby="powerbi-modal-title">
+      <span class="close-modal" aria-label="Close modal">&times;</span>
+      <h3 id="powerbi-modal-title">Power BI Dashboards</h3>
 
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/ai-enchanced-remote-joblisting-streamlit.png" alt="AI-Enhanced Job Listings Analyzer image" />
-    <a href="https://github.com/sajansshergill/job-listing-analyzer" class="project-button">AI-Enhanced Job Listings Analyzer</a>
+      <div class="modal-content-wrapper">
+        <img src="/assets/images/customer-churn-prediction-powerbi.png" alt="Customer Churn Dashboard" class="modal-img" />
+        <h3>Customer Churn Prediction & Insights Dashboard</h3>
+        <p><a href="https://github.com/sajansshergill/subscription-service-churn" target="_blank" rel="noopener noreferrer">🔗 GitHub Repository</a></p>
+
+        <img src="/assets/images/intern-onboarding-analytics-powerbi.png" alt="Intern Onboarding Analytics Dashboard" class="modal-img" />
+        <h3>Intern Onboarding Analytics Dashboard</h3>
+        <p><a href="https://github.com/sajansshergill/intern-onboarding-analytics" target="_blank" rel="noopener noreferrer">🔗 GitHub Repository</a></p>
+
+        <img src="/assets/images/promptEval-powerbi.png" alt="PromptEval Dashboard" class="modal-img" />
+        <h3>PromptEval Dashboard</h3>
+        <p><a href="https://github.com/sajansshergill/PromptEval" target="_blank" rel="noopener noreferrer">🔗 GitHub Repository</a></p>
+      </div>
+    </div>
   </div>
 
-<div class="projects-grid">
-  <div class="project-item">
-    <img src="/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png" alt="Infrastructure Performance Monitoring image" />
-    <a href="https://github.com/sajansshergill/performance-monitoring" class="project-button">Infrastructure Performance Monitoring</a>
+  <div
+    class="github-projects"
+    data-github-user="sajansshergill"
+    data-github-limit="6"
+  >
+    <h3 class="projects-subheading">Latest repositories</h3>
+    <div id="github-projects-status" class="github-projects-status">Loading…</div>
+    <div id="github-projects-grid" class="projects-grid github-projects-grid" aria-live="polite"></div>
+    <p class="github-projects-footer">
+      <a class="github-projects-link" href="https://github.com/sajansshergill" target="_blank" rel="noopener noreferrer">View all on GitHub →</a>
+    </p>
   </div>
-
-</div>
-
-</div>
 </section>
 
 <section id="certifications">
   <h2 class="section-title">CERTIFICATIONS</h2>
   <div class="certification-grid">
     <div class="cert-card">
-      <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-c8aceab5-3f26-41f2-9f22-86dc702c928e.pdf" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="Complete Introduction to Data Science and Machine Learning from Basic to Advanced. Logo" class="cert-logo" /></a>
-      <p>Complete Introduction to Data Science and Machine Learning from Basic to Advanced.<br><small>Issued May 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.coursera.org/account/accomplishments/specialization/S5K56TZYOD07" target="_blank"></a>
-      <img src="/assets/images/google-logo.jpeg" alt="Google Data Analytics Specialization Logo" class="cert-logo" /></a>
-      <p>Google Data Analytics Specialization<br><small>Issued October 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href = "https://www.credly.com/badges/45d3703c-57c1-4438-a6ca-3e27216c5d4e/linked_in_profile" target="_blank">
-      <img src="/assets/images/pace_university_logo.jpeg" alt="INSPIRE (International Student Professional Readiness Education) Program Certification Logo" class="cert-logo" /></a>
-      <p>INSPIRE (International Student Professional Readiness Education) Program Certification<br><small>Issued October 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.udemy.com/certificate/UC-3c533dd6-7532-4537-a5db-dfcd9e273ed1/" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="Learn ML: Beginner's Guide to Machine Learning With Python Logo" class="cert-logo" /></a>
-      <p>Learn ML: Beginner's Guide to Machine Learning With Python<br><small>Issued March 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.linkedin.com/learning/certificates/ca0f2441a806f2d50722939dc7edc97f125667405e4b20563310c44bf76a2c80?u=57121697" target="_blank">
-      <img src="/assets/images/LinkedIn-Learning-image.png" alt="Artificial Intelligence Foundations: Machine Learning Logo" class="cert-logo" /></a>
-      <p>Artificial Intelligence Foundations: Machine Learning<br><small>Issued December 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/BCG%20/Tcz8gTtprzAS4xSoK_SKZxezskWgmFjRvj9_dt4vinuChwgustQQm_1730142854760_completion_certificate.pdf" target="_blank">
-      <img src="/assets/images/theforage_logo.jpeg" alt="BCG - Data Science Job Simulation Logo" class="cert-logo" /></a>
-      <p>BCG - Data Science Job Simulation<br><small>Issued October 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.udemy.com/certificate/UC-3de25fad-b018-4a0e-b26a-df7cecece2c0/" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="Complete Data Science BootCamp 2024 Logo" class="cert-logo" /></a>
-      <p>Complete Data Science BootCamp 2024<br><small>Issued March 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.linkedin.com/learning/certificates/8979f87eb87f4672e44a15176913edf370da03b390e73a5cb8220b908c053d3e?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3By%2Fmo3uj4RlayQTc%2FBrxUTg%3D%3D" target="_blank">
-      <img src="/assets/images/LinkedIn-Learning-image.png" alt="Machine Learning Foundations: Statistics Logo" class="cert-logo" /></a>
-      <p>Machine Learning Foundations: Statistics<br><small>Issued October 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Quantium/NkaC7knWtjSbi6aYv_Quantium_dt4vinuChwgustQQm_1728854596477_completion_certificate.pdf" target="_blank">
-      <img src="/assets/images/theforage_logo.jpeg" alt="Quantium - Data Analytics Job Simulation Logo" class="cert-logo" /></a>
-      <p>Quantium - Data Analytics Job Simulation<br><small>Issued October 2024</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://excel.jatanshah.in/your-certificate/2D041AC98C3C-2D0662DAE18C-7F053A5392/" target="_blank">
-      <img src="/assets/images/skill-nation-logo.jpeg" alt="Basic-to-Advanced-Microsoft-Excel logo" class="cert-logo" /></a>
-      <p>Basic-to-Advanced-Microsoft-Excel<br><small>Issued December 2023</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.linkedin.com/learning/certificates/860aa50f7ce82ad8ed92c0dfd5e8a61174092ebf9760367fb3253ff04aeaa85e?u=57121697" target="_blank">
-      <img src="/assets/images/LinkedIn-Learning-image.png" alt="Everybody's Introduction to Tableau logo" class="cert-logo" /></a>
-      <p>Everybody's Introduction to Tableau<br><small>Issued 2022</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.udemy.com/certificate/UC-1bea921d-1aed-443e-83eb-0404949ef5b4/" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="Learn Python Programming Masterclass logo" class="cert-logo" /></a>
-      <p>Learn Python Programming Masterclass<br><small>Issued December 2023</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.credly.com/badges/cc499411-0144-4b89-bfce-ea2ac27fa519/print" target="_blank">
-      <img src="/assets/images/google-logo.jpeg" alt="Google AI Essentials logo" class="cert-logo" /></a>
-      <p>Google AI Essentials<br><small>Issued December 2023</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.udemy.com/certificate/UC-0ec21e2b-1dc4-4d93-a12b-384cd468d265/" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="ChatGPT Complete Guide: Learn Midjourney, ChatGPT 4 & More logo" class="cert-logo" /></a>
-      <p>ChatGPT Complete Guide: Learn Midjourney, ChatGPT 4 & More<br><small>Issued December 2023</small></p>
-    </div>
-    <div class="cert-card">
-      <a href="https://www.udemy.com/certificate/UC-fad9e3b1-36fa-4d4f-b3fb-ecc08cfb44df/" target="_blank">
-      <img src="/assets/images/udemy_logo.jpeg" alt="Java Programming Masterclass covering Java 11 & Java 17 logo" class="cert-logo" /></a>
-      <p>Java Programming Masterclass covering Java 11 & Java 17<br><small>Issued September 2021</small></p>
+      <a href="https://udemy-certificate.s3.amazonaws.com/pdf/UC-c8aceab5-3f26-41f2-9f22-86dc702c928e.pdf" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>Complete Introduction to Data Science and Machine Learning from Basic to Advanced<br><small>Issued May 2024</small></p>
     </div>
 
+    <div class="cert-card">
+      <a href="https://drive.google.com/file/d/1b6Vc4urcobNpwUtO6-jMcIqlJCb9tpmM/view" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Freedom With AI certificate logo" class="cert-logo" />
+      </a>
+      <p>Freedom With AI Masterclass<br><small>Issued May 2024</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://www.udemy.com/certificate/UC-3de25fad-b018-4a0e-b26a-df7cecece2c0/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>Complete Data Science BootCamp 2024<br><small>Issued Mar 2024</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://drive.google.com/file/d/19UyinB2fdY6mnOIWeqP-9RQ8CZQBI2Iz/view" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/skill-nation-logo.jpeg" alt="Skill Nation certificate logo" class="cert-logo" />
+      </a>
+      <p>Facebook &amp; Instagram Ads Masterclass<br><small>Issued Mar 2024</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://udemy.com/certificate/UC-3c533dd6-7532-4537-a5db-dfcd9e273ed1/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>Learn ML: Beginner's Guide to Machine Learning With Python<br><small>Issued Mar 2024</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://excel.jatanshah.in/your-certificate/2D041AC98C3C-2D0662DAE18C-7F053A5392/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/skill-nation-logo.jpeg" alt="Skill Nation certificate logo" class="cert-logo" />
+      </a>
+      <p>Basic-to-Advanced Microsoft Excel<br><small>Issued Dec 2023</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://drive.google.com/file/d/1yu9i-B2-dF0aQJBm6na8_jZCszPCSw2T/view" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/skill-nation-logo.jpeg" alt="Skill Nation certificate logo" class="cert-logo" />
+      </a>
+      <p>AI Tools and ChatGPT Workshop<br><small>Issued Nov 2023</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://udemy.com/certificate/UC-0ec21e2b-1dc4-4d93-a12b-384cd468d265/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>ChatGPT Complete Guide: Learn Midjourney, ChatGPT 4 &amp; More<br><small>Issued Oct 2023</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://udemy.com/certificate/UC-1bea921d-1aed-443e-83eb-0404949ef5b4/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>Learn Python Programming Masterclass<br><small>Issued Mar 2022</small></p>
+    </div>
+
+    <div class="cert-card">
+      <a href="https://udemy.com/certificate/UC-fad9e3b1-36fa-4d4f-b3fb-ecc08cfb44df/" target="_blank" rel="noopener noreferrer">
+        <img src="/assets/images/udemy_logo.jpeg" alt="Udemy certificate logo" class="cert-logo" />
+      </a>
+      <p>Java Programming Masterclass covering Java 11 &amp; Java 17<br><small>Issued Sep 2021</small></p>
+    </div>
+
+  </div>
+</section>
+
+<section id="gallery">
+  <h2 class="section-heading">GALLERY</h2>
+  <p class="gallery-subtitle">Screenshots from dashboards, ML, and analytics work.</p>
+
+  <div class="gallery-grid" aria-label="Gallery screenshots">
+    <figure class="gallery-card" aria-label="Customer churn dashboard">
+      <img src="/assets/images/customer-churn-prediction-powerbi.png" alt="Customer churn dashboard screenshot" />
+      <figcaption>Customer Churn Prediction</figcaption>
+    </figure>
+
+    <figure class="gallery-card" aria-label="Intern onboarding analytics dashboard">
+      <img src="/assets/images/intern-onboarding-analytics-powerbi.png" alt="Intern onboarding analytics dashboard screenshot" />
+      <figcaption>Intern Onboarding Analytics</figcaption>
+    </figure>
+
+    <figure class="gallery-card" aria-label="Prompt evaluation dashboard">
+      <img src="/assets/images/promptEval-powerbi.png" alt="Prompt evaluation dashboard screenshot" />
+      <figcaption>PromptEval Dashboard</figcaption>
+    </figure>
+
+    <figure class="gallery-card" aria-label="Ethical price tracker dashboard">
+      <img src="/assets/images/ethical-price-tracker-dashboard-streamlit.png" alt="Ethical price tracker dashboard screenshot" />
+      <figcaption>Ethical Price Tracker</figcaption>
+    </figure>
+
+    <figure class="gallery-card" aria-label="AI enhanced job listings analyzer">
+      <img src="/assets/images/ai-enchanced-remote-joblisting-streamlit.png" alt="AI enhanced job listings analyzer screenshot" />
+      <figcaption>AI Job Listings Analyzer</figcaption>
+    </figure>
+
+    <figure class="gallery-card" aria-label="Infrastructure performance monitoring dashboard">
+      <img src="/assets/images/adaptive-infrastructure-performance-monitoring-streamlit.png" alt="Infrastructure performance monitoring screenshot" />
+      <figcaption>Infrastructure Monitoring</figcaption>
+    </figure>
   </div>
 </section>
 
