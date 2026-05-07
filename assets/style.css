@@ -1518,3 +1518,233 @@ html[data-theme="dark"] .gallery-card img {
   outline: 3px solid var(--focus);
   outline-offset: 2px;
 }
+
+/* =========================
+   Mobile Responsiveness
+   ========================= */
+img {
+  max-width: 100%;
+}
+
+@media (max-width: 900px) {
+  body {
+    overflow-x: hidden;
+  }
+
+  header,
+  header.scrolled {
+    padding: 12px 18px;
+  }
+
+  .header-inner {
+    max-width: 100%;
+    align-items: stretch;
+    gap: 10px;
+  }
+
+  nav {
+    width: 100%;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 4px 0 8px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  nav a {
+    flex: 0 0 auto;
+    font-size: 0.78rem;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    padding: 8px 10px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+  }
+
+  header.scrolled nav a {
+    background: rgba(0, 123, 255, 0.08);
+  }
+
+  .theme-toggle {
+    align-self: flex-end;
+    padding: 8px 12px;
+    font-size: 0.82rem;
+  }
+
+  .hero {
+    min-height: 100svh;
+    height: auto;
+    padding: 150px 20px 80px;
+  }
+
+  .hero-text h1 {
+    font-size: clamp(2.35rem, 11vw, 4rem);
+    line-height: 1.05;
+  }
+
+  .hero-text p {
+    font-size: clamp(1.1rem, 5vw, 1.6rem);
+  }
+
+  .section-heading,
+  #projects .section-heading,
+  .section-title {
+    font-size: clamp(2rem, 9vw, 2.7rem);
+    margin-bottom: 32px;
+  }
+
+  .about-detail-section,
+  .education-card-section,
+  .experience-section,
+  #projects,
+  #certifications,
+  #gallery,
+  .contact-section {
+    padding: 70px 20px;
+  }
+
+  .about-card {
+    gap: 28px;
+    padding: 28px;
+  }
+
+  .left-panel,
+  .right-panel {
+    min-width: 0;
+  }
+
+  .education-card,
+  .experience-card,
+  .project-item,
+  .github-repo-card,
+  .cert-card {
+    max-width: 100%;
+  }
+
+  .projects-grid,
+  .experience-grid,
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-cart {
+    width: min(96vw, 760px);
+    max-height: calc(100svh - 24px);
+    padding: 22px;
+  }
+
+  .modal-cart img.modal-img,
+  .modal-img {
+    max-height: 42svh;
+    border-width: 2px;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-inner {
+    flex-direction: column;
+  }
+
+  .theme-toggle {
+    align-self: center;
+  }
+
+  .hero-actions {
+    width: 100%;
+  }
+
+  .btn,
+  .project-button {
+    width: 100%;
+    max-width: 320px;
+  }
+
+  .about-card,
+  .contact-card {
+    padding: 22px;
+  }
+
+  .profile-img {
+    width: min(170px, 70vw);
+  }
+
+  .skills-section ul,
+  .about-highlights {
+    gap: 8px;
+  }
+
+  .skills-section li {
+    width: 100%;
+    border-radius: 14px;
+  }
+
+  .contact-email {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contact-email a {
+    overflow-wrap: anywhere;
+  }
+
+  .social-icons a {
+    width: 48px;
+    height: 48px;
+  }
+
+  .modal-cart {
+    width: calc(100vw - 20px);
+    padding: 18px;
+  }
+
+  .close-modal {
+    top: 8px;
+    right: 12px;
+    min-width: 44px;
+    min-height: 44px;
+  }
+}
+
+@media (max-width: 420px) {
+  header,
+  header.scrolled {
+    padding: 10px 12px;
+  }
+
+  nav a {
+    font-size: 0.72rem;
+    padding: 7px 9px;
+  }
+
+  .hero {
+    padding-top: 165px;
+  }
+
+  .about-detail-section,
+  .education-card-section,
+  .experience-section,
+  #projects,
+  #certifications,
+  #gallery,
+  .contact-section {
+    padding: 58px 14px;
+  }
+
+  .about-card,
+  .education-card,
+  .experience-card,
+  .project-item,
+  .cert-card,
+  .contact-card {
+    border-radius: 14px;
+  }
+
+  .gallery-card img {
+    height: 145px;
+  }
+}
