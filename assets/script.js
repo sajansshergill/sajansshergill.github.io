@@ -1,5 +1,5 @@
-// Typing Effect (keep existing)
-const roles = [ "Product Data Scientist", "Experimentation & Lift Modeling", "SQL • Python"];
+// Typing effect
+const roles = ["Product Data Scientist", "Experimentation & Lift Modeling", "SQL & Python"];
 const typingSpeed = 100;
 const erasingSpeed = 50;
 const delayBetweenWords = 1000;
@@ -10,6 +10,8 @@ let isDeleting = false;
 const textElement = document.getElementById("typing-text");
 
 function typeEffect() {
+  if (!textElement) return;
+
   const currentRole = roles[roleIndex];
 
   if (!isDeleting && charIndex <= currentRole.length) {
@@ -30,82 +32,121 @@ function typeEffect() {
 document.addEventListener("DOMContentLoaded", typeEffect);
 
 // Scroll detection for header style
-window.addEventListener("scroll", () => {
-  const header = document.getElementById("main-header");
+const header = document.getElementById("main-header");
+
+function updateHeaderState() {
+  if (!header) return;
+
   if (window.scrollY > window.innerHeight - header.offsetHeight) {
     header.classList.add("scrolled");
   } else {
     header.classList.remove("scrolled");
   }
+}
+
+window.addEventListener("scroll", () => {
+  window.requestAnimationFrame(updateHeaderState);
 });
+updateHeaderState();
 
-// Scroll-triggered animation for cert cards
-const certCards = document.querySelectorAll('.cert-card');
+function createRevealObserver(threshold) {
+  if (!("IntersectionObserver" in window)) {
+    return null;
+  }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
-}, { threshold: 0.1 });
-
-certCards.forEach(card => observer.observe(card));
-
-// Scroll reveal for additional cards (leader-level polish)
-const revealCards = document.querySelectorAll(
-  '.education-card, .experience-card, .project-item, .gallery-card'
-);
-const revealObserver = new IntersectionObserver(
-  (entries) => {
+  return new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        entry.target.classList.add("visible");
       }
     });
-  },
-  { threshold: 0.15 }
-);
+  }, { threshold });
+}
 
-revealCards.forEach((card) => revealObserver.observe(card));
+// Scroll-triggered animation for cert cards
+const certCards = document.querySelectorAll(".cert-card");
+const certObserver = createRevealObserver(0.1);
+
+certCards.forEach((card) => {
+  if (certObserver) {
+    certObserver.observe(card);
+  } else {
+    card.classList.add("visible");
+  }
+});
+
+// Scroll reveal for additional cards
+const revealCards = document.querySelectorAll(
+  ".education-card, .experience-card, .project-item, .gallery-card"
+);
+const revealObserver = createRevealObserver(0.15);
+
+function revealCard(card) {
+  if (revealObserver) {
+    revealObserver.observe(card);
+  } else {
+    card.classList.add("visible");
+  }
+}
+
+revealCards.forEach(revealCard);
 
 // Modal cart logic
-const openModalBtn = document.getElementById('openModalBtn');
-const modalOverlay = document.getElementById('modalOverlay');
-const closeModalBtns = document.querySelectorAll('.close-modal');
+const openModalBtn = document.getElementById("openModalBtn");
+const modalOverlay = document.getElementById("modalOverlay");
+const closeModalBtns = document.querySelectorAll(".close-modal");
+let lastFocusedElement = null;
 
 function openPowerBiModal() {
-  modalOverlay.style.display = 'flex';
-  modalOverlay.setAttribute('aria-hidden', 'false');
+  if (!modalOverlay) return;
+
+  lastFocusedElement = document.activeElement;
+  modalOverlay.classList.add("active");
+  modalOverlay.setAttribute("aria-hidden", "false");
+  document.body.classList.add("modal-open");
+  modalOverlay.querySelector(".close-modal")?.focus();
 }
 
 function closePowerBiModal() {
-  modalOverlay.style.display = 'none';
-  modalOverlay.setAttribute('aria-hidden', 'true');
+  if (!modalOverlay) return;
+
+  modalOverlay.classList.remove("active");
+  modalOverlay.setAttribute("aria-hidden", "true");
+  document.body.classList.remove("modal-open");
+
+  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
+    lastFocusedElement.focus();
+  }
 }
 
-openModalBtn?.addEventListener('click', openPowerBiModal);
+openModalBtn?.addEventListener("click", openPowerBiModal);
 
-window.addEventListener('click', (e) => {
+window.addEventListener("click", (e) => {
   if (e.target === modalOverlay) {
     closePowerBiModal();
   }
 });
 
+window.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && modalOverlay?.classList.contains("active")) {
+    closePowerBiModal();
+  }
+});
+
 closeModalBtns.forEach((btn) => {
-  btn.addEventListener('click', closePowerBiModal);
+  btn.addEventListener("click", closePowerBiModal);
 });
 
 // GitHub Projects (client-side fetch)
-const githubContainer = document.querySelector('.github-projects[data-github-user]');
-const githubGrid = document.getElementById('github-projects-grid');
-const githubStatus = document.getElementById('github-projects-status');
+const githubContainer = document.querySelector(".github-projects[data-github-user]");
+const githubGrid = document.getElementById("github-projects-grid");
+const githubStatus = document.getElementById("github-projects-status");
 
 async function fetchGitHubRepos(username, perPage) {
   const url = `https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=updated&per_page=${encodeURIComponent(perPage)}`;
   const res = await fetch(url, {
     headers: {
-      Accept: 'application/vnd.github+json'
+      Accept: "application/vnd.github+json"
     }
   });
 
@@ -127,73 +168,75 @@ function formatNumber(n) {
 function formatDate(iso) {
   try {
     return new Date(iso).toLocaleDateString(undefined, {
-      year: 'numeric',
-      month: 'short',
-      day: '2-digit'
+      year: "numeric",
+      month: "short",
+      day: "2-digit"
     });
   } catch {
-    return '';
+    return "";
   }
 }
 
 function renderRepos(repos) {
-  githubGrid.innerHTML = '';
+  if (!githubGrid) return;
+
+  githubGrid.innerHTML = "";
 
   repos.forEach((repo) => {
-    const card = document.createElement('div');
-    card.className = 'project-item github-repo-card';
+    const card = document.createElement("div");
+    card.className = "project-item github-repo-card";
 
-    const icon = document.createElement('img');
-    icon.src = '/assets/icons/github-icon.jpg';
+    const icon = document.createElement("img");
+    icon.src = "/assets/icons/github-icon.jpg";
     icon.alt = `GitHub icon for ${repo.name}`;
     card.appendChild(icon);
 
-    const title = document.createElement('h3');
-    title.className = 'repo-name';
-    const titleLink = document.createElement('a');
+    const title = document.createElement("h3");
+    title.className = "repo-name";
+    const titleLink = document.createElement("a");
     titleLink.href = repo.html_url;
-    titleLink.target = '_blank';
-    titleLink.rel = 'noopener noreferrer';
+    titleLink.target = "_blank";
+    titleLink.rel = "noopener noreferrer";
     titleLink.textContent = repo.name;
     title.appendChild(titleLink);
     card.appendChild(title);
 
-    const desc = document.createElement('p');
-    desc.className = 'repo-description';
-    desc.textContent = repo.description ? repo.description : 'No description provided.';
+    const desc = document.createElement("p");
+    desc.className = "repo-description";
+    desc.textContent = repo.description ? repo.description : "No description provided.";
     card.appendChild(desc);
 
-    const bottom = document.createElement('div');
-    bottom.className = 'repo-bottom';
+    const bottom = document.createElement("div");
+    bottom.className = "repo-bottom";
 
-    const lang = document.createElement('span');
-    lang.className = 'repo-badge repo-language';
-    lang.textContent = repo.language ? repo.language : 'Misc';
+    const lang = document.createElement("span");
+    lang.className = "repo-badge repo-language";
+    lang.textContent = repo.language ? repo.language : "Misc";
     bottom.appendChild(lang);
 
-    const stars = document.createElement('span');
-    stars.className = 'repo-badge repo-stars';
-    stars.textContent = `⭐ ${formatNumber(repo.stargazers_count || 0)}`;
+    const stars = document.createElement("span");
+    stars.className = "repo-badge repo-stars";
+    stars.textContent = `Stars ${formatNumber(repo.stargazers_count || 0)}`;
     bottom.appendChild(stars);
 
-    const updated = document.createElement('span');
-    updated.className = 'repo-badge repo-updated';
+    const updated = document.createElement("span");
+    updated.className = "repo-badge repo-updated";
     const formatted = formatDate(repo.updated_at);
-    updated.textContent = formatted ? `Updated ${formatted}` : 'Recently updated';
+    updated.textContent = formatted ? `Updated ${formatted}` : "Recently updated";
     bottom.appendChild(updated);
 
     card.appendChild(bottom);
 
-    const viewLink = document.createElement('a');
-    viewLink.className = 'project-button';
+    const viewLink = document.createElement("a");
+    viewLink.className = "project-button";
     viewLink.href = repo.html_url;
-    viewLink.target = '_blank';
-    viewLink.rel = 'noopener noreferrer';
-    viewLink.textContent = 'View Repo';
+    viewLink.target = "_blank";
+    viewLink.rel = "noopener noreferrer";
+    viewLink.textContent = "View Repo";
     card.appendChild(viewLink);
 
     githubGrid.appendChild(card);
-    revealObserver.observe(card);
+    revealCard(card);
   });
 }
 
@@ -204,19 +247,19 @@ function renderRepos(repos) {
   const perPageRaw = githubContainer.dataset.githubLimit;
   const perPage = Number(perPageRaw || 6);
 
-  githubStatus.textContent = 'Loading latest repositories…';
+  githubStatus.textContent = "Loading latest repositories...";
 
   const cacheKey = `github-repos-${username}-${perPage}`;
   let cached = null;
   try {
-    cached = JSON.parse(localStorage.getItem(cacheKey) || 'null');
+    cached = JSON.parse(localStorage.getItem(cacheKey) || "null");
   } catch {
     // Ignore cache issues (private mode, storage disabled, etc.)
   }
 
   const cacheAgeMs = 1000 * 60 * 30; // 30 minutes
   if (cached && cached.ts && Array.isArray(cached.repos) && Date.now() - cached.ts < cacheAgeMs) {
-    githubStatus.textContent = 'Up to date.';
+    githubStatus.textContent = "Up to date.";
     renderRepos(cached.repos);
     return;
   }
@@ -228,7 +271,7 @@ function renderRepos(repos) {
       .slice(0, perPage);
 
     renderRepos(visibleRepos);
-    githubStatus.textContent = visibleRepos.length ? '' : 'No repositories found.';
+    githubStatus.textContent = visibleRepos.length ? "" : "No repositories found.";
 
     try {
       localStorage.setItem(cacheKey, JSON.stringify({ ts: Date.now(), repos: visibleRepos }));
@@ -236,38 +279,38 @@ function renderRepos(repos) {
       // Ignore caching errors
     }
   } catch (err) {
-    githubStatus.textContent = 'Could not load GitHub projects right now. Please try again later.';
+    githubStatus.textContent = "Could not load GitHub projects right now. Please try again later.";
     // Still render something if there are static fallback cards already on the page.
   }
 })();
 
 // Theme toggle (light/dark)
 (function initThemeToggle() {
-  const toggleBtn = document.getElementById('theme-toggle');
+  const toggleBtn = document.getElementById("theme-toggle");
   if (!toggleBtn) return;
 
-  const storageKey = 'theme';
+  const storageKey = "theme";
 
   function getPreferredTheme() {
     try {
       const stored = localStorage.getItem(storageKey);
-      if (stored === 'light' || stored === 'dark') return stored;
+      if (stored === "light" || stored === "dark") return stored;
     } catch {
       // ignore
     }
 
     // Fall back to system preference
-    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return prefersDark ? 'dark' : 'light';
+    const prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    return prefersDark ? "dark" : "light";
   }
 
   function applyTheme(theme) {
-    const safeTheme = theme === 'dark' ? 'dark' : 'light';
+    const safeTheme = theme === "dark" ? "dark" : "light";
     document.documentElement.dataset.theme = safeTheme;
 
-    const isDark = safeTheme === 'dark';
+    const isDark = safeTheme === "dark";
     toggleBtn.setAttribute('aria-pressed', String(isDark));
-    toggleBtn.textContent = isDark ? 'Light mode' : 'Dark mode';
+    toggleBtn.textContent = isDark ? "Light mode" : "Dark mode";
 
     try {
       localStorage.setItem(storageKey, safeTheme);
@@ -279,8 +322,8 @@ function renderRepos(repos) {
   const initialTheme = getPreferredTheme();
   applyTheme(initialTheme);
 
-  toggleBtn.addEventListener('click', () => {
-    const current = document.documentElement.dataset.theme === 'dark' ? 'dark' : 'light';
-    applyTheme(current === 'dark' ? 'light' : 'dark');
+  toggleBtn.addEventListener("click", () => {
+    const current = document.documentElement.dataset.theme === "dark" ? "dark" : "light";
+    applyTheme(current === "dark" ? "light" : "dark");
   });
 })();

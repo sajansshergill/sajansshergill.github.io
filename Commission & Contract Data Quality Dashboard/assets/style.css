@@ -1,22 +1,36 @@
 /* style.css */
+:root {
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --text: #1f2937;
+    --muted: #64748b;
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --border: #e5e7eb;
+    --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  }
+
 body {
     margin: 0;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f9fafb;
-    color: #333;
+    background:
+      radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
+      var(--bg);
+    color: var(--text);
     line-height: 1.6;
   }
   
   header {
-    background: #2563eb;
+    background: linear-gradient(135deg, #1e3a8a, var(--primary));
     color: white;
-    padding: 2rem 1rem;
+    padding: 4rem 1rem;
     text-align: center;
   }
   
   header h1 {
     margin-bottom: 0.5rem;
-    font-size: 2.5rem;
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.1;
   }
   
   header p {
@@ -26,23 +40,36 @@ body {
   }
   
   section {
-    padding: 2rem 1rem;
+    padding: 2rem;
     max-width: 900px;
-    margin: auto;
-    border-bottom: 1px solid #e5e7eb;
+    margin: 1.5rem auto;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--shadow);
   }
   
   h2 {
-    color: #1e40af;
+    color: var(--primary-dark);
     margin-bottom: 1rem;
+  }
+
+  h3 {
+    color: #0f172a;
+    margin-top: 1.5rem;
   }
   
   ul, ol {
     padding-left: 1.2rem;
   }
+
+  li {
+    margin-bottom: 0.35rem;
+  }
   
   a {
-    color: #2563eb;
+    color: var(--primary);
+    font-weight: 700;
     text-decoration: none;
   }
   
@@ -52,9 +79,20 @@ body {
   
   footer {
     text-align: center;
-    padding: 1rem;
+    padding: 1.5rem 1rem;
     background: #f1f5f9;
-    color: #64748b;
+    color: var(--muted);
     font-size: 0.9rem;
+  }
+
+  @media (max-width: 640px) {
+    header {
+      padding: 3rem 1rem;
+    }
+
+    section {
+      padding: 1.5rem;
+      margin: 1rem;
+    }
   }
   

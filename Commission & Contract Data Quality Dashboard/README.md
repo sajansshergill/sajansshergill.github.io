@@ -1,122 +1,36 @@
-## 💼 Commission & Contract Data Quality Dashboard
+## Commission & Contract Data Quality Dashboard
 
-### 📌 Project Overview
-This project simulates a real-world scenario where financial commission and contract data often contains 
-inconsistencies such as duplicates, missing values, or misaligned entries. The goal is to clean, validate, 
-and visualize this data using Excel, Power BI, and optionally Python, to showcase analytical rigor and 
-dashboarding capability.
+This case study simulates a financial operations workflow where commission and contract data must be cleaned, validated, and summarized before it can support business decisions.
 
-### 🧠 Problem Statement
-Financial operations teams often deal with messy datasets, including:
+## Problem Statement
 
-- Missing commission percentages
+Financial operations datasets often contain quality issues such as missing commission percentages, duplicate contract records, inconsistent date formats, and mismatches between contract values and calculated commissions. This project addresses those issues through structured cleaning, validation, metric calculation, and dashboard design.
 
-- Duplicate contract records
+## Tools
 
-- Inconsistent date formats
+- Excel for data inspection, formulas, and pivot tables.
+- Power BI for dashboard visuals and KPI reporting.
+- Python with pandas for optional data wrangling.
+- Google Sheets for collaborative review.
 
-- Mismatches between contract amounts and calculated commissions
+## Data Model
 
-This project addresses those issues by applying cleaning and validation techniques, followed by the 
-creation of a dashboard that highlights key trends, outliers, and insights to support strategic decisions.
+- `commission_data.csv`: `agent_id`, `contract_id`, `date`, `amount`, `commission_pct`, `region`, `commission`.
+- `contract_data.csv`: `contract_id`, `start_date`, `end_date`, `client_name`, `total_value`.
 
-### 🔧 Tools & Technologies
-- Excel (Advanced formulas, Pivot Tables)
-  
-- Power BI (or Tableau for interactive dashboarding)
+## Workflow
 
-- Python (pandas) – Optional for advanced data wrangling
+1. Import and inspect both datasets.
+2. Clean missing values, remove duplicates, and standardize date formats.
+3. Recalculate commissions with `amount * commission_pct`.
+4. Cross-check contract totals across the commission and contract datasets.
+5. Calculate total commission by region, average commission percentage, top-performing agents, and monthly trends.
+6. Flag records where commission deviates +/-15% from the average.
+7. Build Power BI visuals for regional performance, trend analysis, KPI summaries, and validation results.
 
-- Google Sheets – Optional for collaborative editing
+## Deliverables
 
-### 📊 Data Source
-Synthetic data was generated for this project:
-
-- commission_data.csv
-Fields: agent_id, contract_id, date, amount, commission_pct, region, commission
-
-- contract_data.csv
-Fields: contract_id, start_date, end_date, client_name, total_value
-
-### 🧪 Steps to Execute
-#### 1. Data Import
-- Load both datasets into Excel or a Python environment.
-
-- Inspect for issues such as missing or incorrect values.
-
-#### 2. Data Cleaning
-- Handle missing values in commission_pct, contract_id
-
-- Remove duplicate rows
-
-- Standardize date formats for consistency
-
-#### 3. Data Validation
-- Recalculate commissions using: amount × commission_pct
-
-- Cross-verify contract totals between both datasets
-
-#### 4. Metric Calculation
-- Total commission earned per region
-
-- Average commission percentage across contracts
-
-- Identify top-performing agents
-
-- Detect monthly/quarterly earning trends
-
-#### 5. Dashboard Development
-- Use Power BI or Tableau to create:
-
-  - Filters: By Date and Region
-
-  - Charts:
-
-    - Bar chart: Total commission by region
-
-    - Line chart: Monthly commission trends
-
-    - Pie chart: Commission distribution by region
-
-    - Summary table for contract validations
-
-#### 6. Anomaly Detection
-- Highlight records where commission deviates ±15% from average
-
-### 📈 Visualizations
-- 📊 Bar Chart: Total Commission by Region
-
-- 📉 Line Chart: Commission Over Time
-
-- 📋 Table: Contract Validation Summary
-
-- 🧮 KPI Cards: Total Contracts, Avg. Commission %
-
-### 📝 Final Deliverables
-- ✅ Jupyter Notebook or Excel workbook (Data cleaning, validation logic)
-
-- ✅ Power BI / Tableau Dashboard
-
-- ✅ Write-Up (README.md):
-
-  - Introduction & Problem Statement
-
-  - Tools Used
-
-  - Data Cleaning & Validation Strategy
-
-  - Key Insights & Metrics
-
-  - Dashboard Screenshots & Interpretation
-
-### 🔗 Alignment with Internship Role
-This project demonstrates:
-
-- Ability to clean and validate contract/commission datasets
-
-- Proficiency with BI tools and Excel
-
-- Skills in exploratory data analysis
-
-- Communication of insights through interactive dashboards
+- Cleaned workbook or notebook with validation logic.
+- Power BI dashboard.
+- Written summary explaining data quality issues, remediation steps, and key insights.
 

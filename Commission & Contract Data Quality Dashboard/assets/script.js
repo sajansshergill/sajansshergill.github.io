@@ -1,3 +1,1 @@
-// script.js
-// Placeholder for future enhancements
-console.log("Portfolio page loaded successfully");
+document.documentElement.classList.add("js-enabled");
