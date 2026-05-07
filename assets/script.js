@@ -91,52 +91,6 @@ function revealCard(card) {
 
 revealCards.forEach(revealCard);
 
-// Modal cart logic
-const openModalBtn = document.getElementById("openModalBtn");
-const modalOverlay = document.getElementById("modalOverlay");
-const closeModalBtns = document.querySelectorAll(".close-modal");
-let lastFocusedElement = null;
-
-function openPowerBiModal() {
-  if (!modalOverlay) return;
-
-  lastFocusedElement = document.activeElement;
-  modalOverlay.classList.add("active");
-  modalOverlay.setAttribute("aria-hidden", "false");
-  document.body.classList.add("modal-open");
-  modalOverlay.querySelector(".close-modal")?.focus();
-}
-
-function closePowerBiModal() {
-  if (!modalOverlay) return;
-
-  modalOverlay.classList.remove("active");
-  modalOverlay.setAttribute("aria-hidden", "true");
-  document.body.classList.remove("modal-open");
-
-  if (lastFocusedElement && typeof lastFocusedElement.focus === "function") {
-    lastFocusedElement.focus();
-  }
-}
-
-openModalBtn?.addEventListener("click", openPowerBiModal);
-
-window.addEventListener("click", (e) => {
-  if (e.target === modalOverlay) {
-    closePowerBiModal();
-  }
-});
-
-window.addEventListener("keydown", (e) => {
-  if (e.key === "Escape" && modalOverlay?.classList.contains("active")) {
-    closePowerBiModal();
-  }
-});
-
-closeModalBtns.forEach((btn) => {
-  btn.addEventListener("click", closePowerBiModal);
-});
-
 // GitHub Projects (client-side fetch)
 const githubContainer = document.querySelector(".github-projects[data-github-user]");
 const githubGrid = document.getElementById("github-projects-grid");
