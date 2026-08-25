@@ -1,5 +1,5 @@
 // Typing effect
-const roles = ["Product Data Scientist", "Experimentation & Lift Modeling", "SQL & Python"];
+const roles = ["Data Analyst", "Data Engineer", "QA Engineer", "Data Scientist", "SQL & Python"];
 const typingSpeed = 100;
 const erasingSpeed = 50;
 const delayBetweenWords = 1000;
