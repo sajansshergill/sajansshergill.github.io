@@ -1,131 +1,139 @@
-/* style.css */
 :root {
-    --bg: #f8fafc;
-    --surface: #ffffff;
-    --text: #1f2937;
-    --muted: #64748b;
-    --primary: #2563eb;
-    --primary-dark: #1e40af;
-    --border: #e5e7eb;
-    --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
-  }
+  --bg: #f3eee4;
+  --surface: #faf7f1;
+  --ink: #171614;
+  --muted: #5c574e;
+  --line: rgba(23, 22, 20, 0.12);
+  --navy: #1c2f4a;
+  --rust: #b3472d;
+  --font-display: "Instrument Serif", Georgia, serif;
+  --font-body: "Instrument Sans", "Segoe UI", sans-serif;
+}
 
 * {
-    box-sizing: border-box;
-  }
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
 body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background:
-      radial-gradient(circle at top left, rgba(37, 99, 235, 0.12), transparent 34rem),
-      var(--bg);
-    color: var(--text);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  
-  header {
-    background: linear-gradient(135deg, #1e3a8a, var(--primary));
-    color: white;
-    padding: 4rem 1rem;
-    text-align: center;
-  }
-  
-  header h1 {
-    margin-bottom: 0.5rem;
-    font-size: clamp(2rem, 5vw, 3.4rem);
-    line-height: 1.1;
-  }
-  
-  header p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto;
-  }
-  
-  section {
-    padding: 2rem;
-    max-width: 900px;
-    margin: 1.5rem auto;
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow: var(--shadow);
-  }
-  
-  h2 {
-    color: var(--primary-dark);
-    margin-bottom: 1rem;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.65;
+}
+
+a {
+  color: var(--rust);
+}
+
+.back {
+  display: inline-block;
+  margin: 24px 0 0 24px;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.back:hover {
+  color: var(--rust);
+}
+
+header,
+main,
+footer {
+  width: min(760px, calc(100% - 48px));
+  margin-inline: auto;
+}
+
+header {
+  padding: 48px 0 24px;
+}
+
+.eyebrow {
+  color: var(--rust);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+h1,
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: -0.03em;
+}
+
+h1 {
+  font-size: clamp(2.2rem, 6vw, 3.4rem);
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+header p {
+  color: var(--muted);
+  font-size: 1.15rem;
+}
+
+section {
+  padding: 28px 0;
+  border-top: 1px solid var(--line);
+}
+
+h2 {
+  font-size: 1.7rem;
+  margin-bottom: 12px;
+}
+
+p,
+li {
+  color: var(--muted);
+}
+
+p + p {
+  margin-top: 10px;
+}
+
+ul,
+ol {
+  padding-left: 1.2rem;
+  margin-top: 12px;
+}
+
+li {
+  margin-bottom: 0.4rem;
+}
+
+.resource {
+  margin-top: 18px;
+}
+
+.resource a {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+footer {
+  padding: 28px 0 48px;
+  border-top: 1px solid var(--line);
+}
+
+footer a {
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .back {
+    margin-left: 16px;
   }
 
-  h3 {
-    color: #0f172a;
-    margin-top: 1.5rem;
-  }
-  
-  ul, ol {
-    padding-left: 1.2rem;
-  }
-
-  li {
-    margin-bottom: 0.35rem;
-  }
-  
-  a {
-    color: var(--primary);
-    font-weight: 700;
-    text-decoration: none;
-  }
-  
-  a:hover {
-    text-decoration: underline;
-  }
-  
+  header,
+  main,
   footer {
-    text-align: center;
-    padding: 1.5rem 1rem;
-    background: #f1f5f9;
-    color: var(--muted);
-    font-size: 0.9rem;
+    width: min(760px, calc(100% - 32px));
   }
-
-  @media (max-width: 640px) {
-    header {
-      padding: 3rem 1rem;
-    }
-
-    header p {
-      font-size: 1rem;
-    }
-
-    section {
-      padding: 1.5rem;
-      margin: 1rem;
-    }
-
-    h2 {
-      font-size: 1.45rem;
-    }
-
-    h3 {
-      font-size: 1.1rem;
-    }
-  }
-
-  @media (max-width: 420px) {
-    header {
-      padding: 2.5rem 0.85rem;
-    }
-
-    section {
-      padding: 1.15rem;
-      margin: 0.85rem;
-      border-radius: 14px;
-    }
-
-    ul,
-    ol {
-      padding-left: 1rem;
-    }
-  }
+}

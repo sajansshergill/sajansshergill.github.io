@@ -4,72 +4,76 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Commission and contract data quality dashboard case study covering data cleaning, validation, analytics, and business reporting." />
-  <title>Commission & Contract Dashboard | Portfolio</title>
+  <title>Commission &amp; Contract Dashboard · Sajan Singh Shergill</title>
+  <link rel="icon" type="image/png" href="/assets/images/ART.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/style.css">
-  <script defer src="assets/script.js"></script>
 </head>
 <body>
+  <a class="back" href="/">← Portfolio</a>
+
   <header>
-    <h1>Commission & Contract Data Quality Dashboard</h1>
-    <p>A data cleaning and visualization project using Excel, Power BI & Python.</p>
+    <p class="eyebrow">Case study · Excel · Power BI · Python</p>
+    <h1>Commission &amp; Contract Data Quality Dashboard</h1>
+    <p>Cleaning, validating, and reporting commission data so finance can trust the number before they act on it.</p>
   </header>
 
-  <section class="overview">
-    <h2>Project Overview</h2>
-    <p>This project simulates a real-world financial operations scenario by cleaning, validating, and visualizing commission and contract data. The goal is to support strategic decisions through accurate metrics and an interactive dashboard.</p>
-  </section>
+  <main>
+    <section>
+      <h2>Problem</h2>
+      <p>Commission and contract files in this workflow arrived with the usual operations mess: missing rates, duplicate contracts, mixed date formats, and totals that did not match. None of that is a visualization problem until the data is honest.</p>
+      <ul>
+        <li>Missing commission percentages</li>
+        <li>Duplicate contract records</li>
+        <li>Inconsistent date formats</li>
+        <li>Mismatch between contract amount and commissions</li>
+      </ul>
+    </section>
 
-  <section class="details">
-    <h2>Problem Statement</h2>
-    <ul>
-      <li>Missing commission percentages</li>
-      <li>Duplicate contract records</li>
-      <li>Inconsistent date formats</li>
-      <li>Mismatch between contract amount & commissions</li>
-    </ul>
+    <section>
+      <h2>Approach</h2>
+      <ol>
+        <li>Import and inspect both datasets</li>
+        <li>Clean missing values, standardize formats, remove duplicates</li>
+        <li>Recalculate commissions and cross-check contract totals</li>
+        <li>Calculate regional KPIs and monthly trends</li>
+        <li>Flag records more than 15% from average commission</li>
+        <li>Build the Power BI reporting layer</li>
+      </ol>
+    </section>
 
-    <h3>Tools & Technologies Used</h3>
-    <ul>
-      <li>Excel (Advanced formulas, Pivot Tables)</li>
-      <li>Power BI (Dashboard Visuals)</li>
-      <li>Python (pandas for optional wrangling)</li>
-      <li>Google Sheets (Collaborative editing)</li>
-    </ul>
+    <section>
+      <h2>Stack</h2>
+      <ul>
+        <li>Excel — formulas, inspection, pivot tables</li>
+        <li>Power BI — KPI cards, regional and trend views</li>
+        <li>Python / pandas — optional wrangling</li>
+        <li>Google Sheets — collaborative review</li>
+      </ul>
+    </section>
 
-    <h3>Dataset Fields</h3>
-    <p><strong>commission_data.csv</strong>: agent_id, contract_id, date, amount, commission_pct, region, commission</p>
-    <p><strong>contract_data.csv</strong>: contract_id, start_date, end_date, client_name, total_value</p>
-  </section>
+    <section>
+      <h2>Data</h2>
+      <p><strong>commission_data.csv</strong>: agent_id, contract_id, date, amount, commission_pct, region, commission</p>
+      <p><strong>contract_data.csv</strong>: contract_id, start_date, end_date, client_name, total_value</p>
+    </section>
 
-  <section class="execution">
-    <h2>Execution Steps</h2>
-    <ol>
-      <li>Import & Inspect data</li>
-      <li>Clean missing values, standardize formats, remove duplicates</li>
-      <li>Validate commissions and contract values</li>
-      <li>Calculate KPIs and insights</li>
-      <li>Develop Power BI dashboard</li>
-      <li>Highlight anomalies +/-15% from average</li>
-    </ol>
-  </section>
-
-  <section class="visuals">
-    <h2>Visualizations</h2>
-    <ul>
-      <li>Bar chart: Total commission by region</li>
-      <li>Line chart: Monthly commission trends</li>
-      <li>Table: Contract validation summary</li>
-      <li>KPI cards: Total contracts and average commission percentage</li>
-    </ul>
-  </section>
-
-  <section class="links">
-    <h2>Resources</h2>
-    <p><a href="https://github.com/sajansshergill/sajansshergill.github.io/tree/main/Commission%20%26%20Contract%20Data%20Quality%20Dashboard" target="_blank" rel="noopener noreferrer">View Project on GitHub</a></p>
-  </section>
+    <section>
+      <h2>Reporting</h2>
+      <ul>
+        <li>Bar chart: total commission by region</li>
+        <li>Line chart: monthly commission trends</li>
+        <li>Table: contract validation summary</li>
+        <li>KPI cards: total contracts and average commission percentage</li>
+      </ul>
+      <p class="resource"><a href="https://github.com/sajansshergill/sajansshergill.github.io/tree/main/Commission%20%26%20Contract%20Data%20Quality%20Dashboard" target="_blank" rel="noopener noreferrer">View files on GitHub</a></p>
+    </section>
+  </main>
 
   <footer>
-    <p>Designed by Sajan Singh | © 2025</p>
+    <p><a href="/">Sajan Singh Shergill</a></p>
   </footer>
 </body>
 </html>
