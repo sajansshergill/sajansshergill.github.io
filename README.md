@@ -1,13 +1,13 @@
 # Sajan Singh Shergill Portfolio
 
-Personal portfolio site for Sajan Singh Shergill, focused on product data science, analytics, experimentation, machine learning, and selected dashboard projects.
+Personal portfolio site for Sajan Singh Shergill, Data Engineer: batch and streaming pipelines, warehouse modeling, and data quality gates.
 
 ## Contents
 
-- `index.html` - Main portfolio page.
-- `assets/style.css` - Site styling, responsive layouts, dark mode, and visual polish.
-- `assets/script.js` - Client-side interactions for typing animation, theme switching, modal behavior, scroll reveal, and GitHub repository loading.
-- `Commission & Contract Data Quality Dashboard/` - Standalone dashboard case-study page.
+- `index.html` - Main portfolio page: pipeline projects, stack, experience, writing, and contact.
+- `assets/style.css` - Site styling, responsive layouts, and light/dark themes.
+- `assets/script.js` - Sticky header state, mobile navigation, and theme switching.
+- `Commission & Contract Data Quality Dashboard/` - Standalone dashboard case-study page (not linked from the homepage).
 
 ## Local Preview
 

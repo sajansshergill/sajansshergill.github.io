@@ -13,6 +13,13 @@ window.addEventListener("scroll", () => {
 }, { passive: true });
 setHeaderState();
 
+function closeNav() {
+  if (!nav || !navToggle) return;
+  nav.classList.remove("is-open");
+  navToggle.setAttribute("aria-expanded", "false");
+  navToggle.textContent = "Menu";
+}
+
 if (navToggle && nav) {
   navToggle.addEventListener("click", () => {
     const open = !nav.classList.contains("is-open");
@@ -21,12 +28,10 @@ if (navToggle && nav) {
     navToggle.textContent = open ? "Close" : "Menu";
   });
 
-  nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", () => {
-      nav.classList.remove("is-open");
-      navToggle.setAttribute("aria-expanded", "false");
-      navToggle.textContent = "Menu";
-    });
+  nav.querySelectorAll("a").forEach((link) => link.addEventListener("click", closeNav));
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") closeNav();
   });
 }
 
@@ -42,13 +47,12 @@ if (navToggle && nav) {
     try {
       localStorage.setItem("theme", safe);
     } catch {
-      // private mode
+      // storage unavailable in private mode
     }
   }
 
   applyTheme(document.documentElement.dataset.theme || "light");
   themeToggle.addEventListener("click", () => {
-    const next = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
-    applyTheme(next);
+    applyTheme(document.documentElement.dataset.theme === "dark" ? "light" : "dark");
   });
 })();
